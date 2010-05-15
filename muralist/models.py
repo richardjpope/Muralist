@@ -23,7 +23,6 @@ class Artist(models.Model):
         
     objects = models.Manager()
     
-    
     def __unicode__(self):
         return self.name
 
