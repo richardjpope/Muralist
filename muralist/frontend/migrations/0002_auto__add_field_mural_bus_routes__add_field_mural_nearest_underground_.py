@@ -9,25 +9,25 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         
         # Adding field 'Mural.bus_routes'
-        db.add_column('muralist_mural', 'bus_routes', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True), keep_default=False)
+        db.add_column('frontend_mural', 'bus_routes', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True), keep_default=False)
 
         # Adding field 'Mural.nearest_underground'
-        db.add_column('muralist_mural', 'nearest_underground', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True), keep_default=False)
+        db.add_column('frontend_mural', 'nearest_underground', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True), keep_default=False)
 
         # Adding field 'Mural.nearest_railway_station'
-        db.add_column('muralist_mural', 'nearest_railway_station', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True), keep_default=False)
+        db.add_column('frontend_mural', 'nearest_railway_station', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True), keep_default=False)
     
     
     def backwards(self, orm):
         
         # Deleting field 'Mural.bus_routes'
-        db.delete_column('muralist_mural', 'bus_routes')
+        db.delete_column('frontend_mural', 'bus_routes')
 
         # Deleting field 'Mural.nearest_underground'
-        db.delete_column('muralist_mural', 'nearest_underground')
+        db.delete_column('frontend_mural', 'nearest_underground')
 
         # Deleting field 'Mural.nearest_railway_station'
-        db.delete_column('muralist_mural', 'nearest_railway_station')
+        db.delete_column('frontend_mural', 'nearest_railway_station')
     
     
     models = {

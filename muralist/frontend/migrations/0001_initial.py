@@ -9,7 +9,7 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
 
         # Adding model 'Artist'
-        xdb.create_table('muralist_artist', (
+        xdb.create_table('frontend_artist', (
             ('short_biography', self.gf('django.db.models.fields.TextField')(max_length=300, null=True, blank=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('long_biography', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
@@ -29,7 +29,7 @@ class Migration(SchemaMigration):
         db.send_create_signal('muralist', ['Artist'])
 
         # Adding model 'ArtistEducation'
-        db.create_table('muralist_artisteducation', (
+        db.create_table('frontend_artisteducation', (
             ('course_name', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
             ('end_date', self.gf('django.db.models.fields.DateField')()),
             ('artist', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['muralist.Artist'])),
@@ -41,7 +41,7 @@ class Migration(SchemaMigration):
         db.send_create_signal('muralist', ['ArtistEducation'])
 
         # Adding model 'ArtistNonMuralWork'
-        db.create_table('muralist_artistnonmuralwork', (
+        db.create_table('frontend_artistnonmuralwork', (
             ('date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
             ('notes', self.gf('django.db.models.fields.TextField')(max_length=300, null=True, blank=True)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=100)),
@@ -51,7 +51,7 @@ class Migration(SchemaMigration):
         db.send_create_signal('muralist', ['ArtistNonMuralWork'])
 
         # Adding model 'Workshop'
-        db.create_table('muralist_workshop', (
+        db.create_table('frontend_workshop', (
             ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('end_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
             ('uri_slug', self.gf('django.db.models.fields.SlugField')(max_length=50, db_index=True)),
@@ -66,15 +66,15 @@ class Migration(SchemaMigration):
         db.send_create_signal('muralist', ['Workshop'])
 
         # Adding M2M table for field artists on 'Workshop'
-        db.create_table('muralist_workshop_artists', (
+        db.create_table('frontend_workshop_artists', (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('workshop', models.ForeignKey(orm['muralist.workshop'], null=False)),
             ('artist', models.ForeignKey(orm['muralist.artist'], null=False))
         ))
-        db.create_unique('muralist_workshop_artists', ['workshop_id', 'artist_id'])
+        db.create_unique('frontend_workshop_artists', ['workshop_id', 'artist_id'])
 
         # Adding model 'Mural'
-        db.create_table('muralist_mural', (
+        db.create_table('frontend_mural', (
             ('date_completed', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
             ('wikipedia_uri', self.gf('django.db.models.fields.URLField')(max_length=200, null=True, blank=True)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=100)),
@@ -97,15 +97,15 @@ class Migration(SchemaMigration):
         db.send_create_signal('muralist', ['Mural'])
 
         # Adding M2M table for field artists on 'Mural'
-        db.create_table('muralist_mural_artists', (
+        db.create_table('frontend_mural_artists', (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('mural', models.ForeignKey(orm['muralist.mural'], null=False)),
             ('artist', models.ForeignKey(orm['muralist.artist'], null=False))
         ))
-        db.create_unique('muralist_mural_artists', ['mural_id', 'artist_id'])
+        db.create_unique('frontend_mural_artists', ['mural_id', 'artist_id'])
 
         # Adding model 'MuralAlternativeName'
-        db.create_table('muralist_muralalternativename', (
+        db.create_table('frontend_muralalternativename', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('mural', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['muralist.Mural'])),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
@@ -113,7 +113,7 @@ class Migration(SchemaMigration):
         db.send_create_signal('muralist', ['MuralAlternativeName'])
 
         # Adding model 'MuralFunder'
-        db.create_table('muralist_muralfunder', (
+        db.create_table('frontend_muralfunder', (
             ('notes', self.gf('django.db.models.fields.TextField')(max_length=300, null=True, blank=True)),
             ('uri', self.gf('django.db.models.fields.URLField')(max_length=200, null=True, blank=True)),
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
@@ -123,7 +123,7 @@ class Migration(SchemaMigration):
         db.send_create_signal('muralist', ['MuralFunder'])
 
         # Adding model 'MuralEvent'
-        db.create_table('muralist_muralevent', (
+        db.create_table('frontend_muralevent', (
             ('description', self.gf('django.db.models.fields.TextField')(max_length=300, null=True, blank=True)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('mural', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['muralist.Mural'])),
@@ -134,7 +134,7 @@ class Migration(SchemaMigration):
         db.send_create_signal('muralist', ['MuralEvent'])
 
         # Adding model 'MuralColour'
-        db.create_table('muralist_muralcolour', (
+        db.create_table('frontend_muralcolour', (
             ('hex_value', self.gf('django.db.models.fields.CharField')(max_length=6)),
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('mural', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['muralist.Mural'])),
@@ -142,7 +142,7 @@ class Migration(SchemaMigration):
         db.send_create_signal('muralist', ['MuralColour'])
 
         # Adding model 'MuralBuildingAttribute'
-        db.create_table('muralist_muralbuildingattribute', (
+        db.create_table('frontend_muralbuildingattribute', (
             ('attribute_type', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('description', self.gf('django.db.models.fields.TextField')(max_length=300, null=True, blank=True)),
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
@@ -152,7 +152,7 @@ class Migration(SchemaMigration):
         db.send_create_signal('muralist', ['MuralBuildingAttribute'])
 
         # Adding model 'MuralMaterial'
-        db.create_table('muralist_muralmaterial', (
+        db.create_table('frontend_muralmaterial', (
             ('material_type', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('mural', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['muralist.Mural'])),
@@ -161,7 +161,7 @@ class Migration(SchemaMigration):
         db.send_create_signal('muralist', ['MuralMaterial'])
 
         # Adding model 'Memory'
-        db.create_table('muralist_memory', (
+        db.create_table('frontend_memory', (
             ('person_description', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
             ('person_name', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=100)),
@@ -183,46 +183,46 @@ class Migration(SchemaMigration):
     def backwards(self, orm):
         
         # Deleting model 'Artist'
-        db.delete_table('muralist_artist')
+        db.delete_table('frontend_artist')
 
         # Deleting model 'ArtistEducation'
-        db.delete_table('muralist_artisteducation')
+        db.delete_table('frontend_artisteducation')
 
         # Deleting model 'ArtistNonMuralWork'
-        db.delete_table('muralist_artistnonmuralwork')
+        db.delete_table('frontend_artistnonmuralwork')
 
         # Deleting model 'Workshop'
-        db.delete_table('muralist_workshop')
+        db.delete_table('frontend_workshop')
 
         # Removing M2M table for field artists on 'Workshop'
-        db.delete_table('muralist_workshop_artists')
+        db.delete_table('frontend_workshop_artists')
 
         # Deleting model 'Mural'
-        db.delete_table('muralist_mural')
+        db.delete_table('frontend_mural')
 
         # Removing M2M table for field artists on 'Mural'
-        db.delete_table('muralist_mural_artists')
+        db.delete_table('frontend_mural_artists')
 
         # Deleting model 'MuralAlternativeName'
-        db.delete_table('muralist_muralalternativename')
+        db.delete_table('frontend_muralalternativename')
 
         # Deleting model 'MuralFunder'
-        db.delete_table('muralist_muralfunder')
+        db.delete_table('frontend_muralfunder')
 
         # Deleting model 'MuralEvent'
-        db.delete_table('muralist_muralevent')
+        db.delete_table('frontend_muralevent')
 
         # Deleting model 'MuralColour'
-        db.delete_table('muralist_muralcolour')
+        db.delete_table('frontend_muralcolour')
 
         # Deleting model 'MuralBuildingAttribute'
-        db.delete_table('muralist_muralbuildingattribute')
+        db.delete_table('frontend_muralbuildingattribute')
 
         # Deleting model 'MuralMaterial'
-        db.delete_table('muralist_muralmaterial')
+        db.delete_table('frontend_muralmaterial')
 
         # Deleting model 'Memory'
-        db.delete_table('muralist_memory')
+        db.delete_table('frontend_memory')
     
     
     models = {
