@@ -63,7 +63,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'muralist.urls'
 
 TEMPLATE_DIRS = (
     "templates"
