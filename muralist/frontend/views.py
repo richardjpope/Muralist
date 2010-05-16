@@ -1,7 +1,7 @@
 import json
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from muralist import models
+from frontend import models
 
 def index (request):
 
