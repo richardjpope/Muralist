@@ -169,4 +169,4 @@ class Migration(SchemaMigration):
         }
     }
     
-    complete_apps = ['muralist']
+    complete_apps = ['murals']

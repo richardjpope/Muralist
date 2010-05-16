@@ -26,7 +26,7 @@ class Migration(SchemaMigration):
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('published', self.gf('django.db.models.fields.BooleanField')(default=False, blank=True)),
         ))
-        db.send_create_signal('muralist', ['Artist'])
+        db.send_create_signal('murals', ['Artist'])
 
         # Adding model 'ArtistEducation'
         db.create_table('murals_artisteducation', (
@@ -38,7 +38,7 @@ class Migration(SchemaMigration):
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('start_date', self.gf('django.db.models.fields.DateField')()),
         ))
-        db.send_create_signal('muralist', ['ArtistEducation'])
+        db.send_create_signal('murals', ['ArtistEducation'])
 
         # Adding model 'ArtistNonMuralWork'
         db.create_table('murals_artistnonmuralwork', (
@@ -48,7 +48,7 @@ class Migration(SchemaMigration):
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('artist', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['murals.Artist'])),
         ))
-        db.send_create_signal('muralist', ['ArtistNonMuralWork'])
+        db.send_create_signal('murals', ['ArtistNonMuralWork'])
 
         # Adding model 'Workshop'
         db.create_table('murals_workshop', (
@@ -63,7 +63,7 @@ class Migration(SchemaMigration):
             ('date_added', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
             ('start_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
         ))
-        db.send_create_signal('muralist', ['Workshop'])
+        db.send_create_signal('murals', ['Workshop'])
 
         # Adding M2M table for field artists on 'Workshop'
         db.create_table('murals_workshop_artists', (
@@ -94,7 +94,7 @@ class Migration(SchemaMigration):
             ('long_description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('condition_description', self.gf('django.db.models.fields.TextField')(max_length=300, null=True, blank=True)),
         ))
-        db.send_create_signal('muralist', ['Mural'])
+        db.send_create_signal('murals', ['Mural'])
 
         # Adding M2M table for field artists on 'Mural'
         db.create_table('murals_mural_artists', (
@@ -110,7 +110,7 @@ class Migration(SchemaMigration):
             ('mural', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['murals.Mural'])),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
         ))
-        db.send_create_signal('muralist', ['MuralAlternativeName'])
+        db.send_create_signal('murals', ['MuralAlternativeName'])
 
         # Adding model 'MuralFunder'
         db.create_table('murals_muralfunder', (
@@ -120,7 +120,7 @@ class Migration(SchemaMigration):
             ('mural', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['murals.Mural'])),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
         ))
-        db.send_create_signal('muralist', ['MuralFunder'])
+        db.send_create_signal('murals', ['MuralFunder'])
 
         # Adding model 'MuralEvent'
         db.create_table('murals_muralevent', (
@@ -131,7 +131,7 @@ class Migration(SchemaMigration):
             ('fuzzy', self.gf('django.db.models.fields.BooleanField')(default=False, blank=True)),
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
         ))
-        db.send_create_signal('muralist', ['MuralEvent'])
+        db.send_create_signal('murals', ['MuralEvent'])
 
         # Adding model 'MuralColour'
         db.create_table('murals_muralcolour', (
@@ -139,7 +139,7 @@ class Migration(SchemaMigration):
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('mural', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['murals.Mural'])),
         ))
-        db.send_create_signal('muralist', ['MuralColour'])
+        db.send_create_signal('murals', ['MuralColour'])
 
         # Adding model 'MuralBuildingAttribute'
         db.create_table('murals_muralbuildingattribute', (
@@ -149,7 +149,7 @@ class Migration(SchemaMigration):
             ('mural', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['murals.Mural'])),
             ('attribute_value', self.gf('django.db.models.fields.CharField')(max_length=100)),
         ))
-        db.send_create_signal('muralist', ['MuralBuildingAttribute'])
+        db.send_create_signal('murals', ['MuralBuildingAttribute'])
 
         # Adding model 'MuralMaterial'
         db.create_table('murals_muralmaterial', (
@@ -158,7 +158,7 @@ class Migration(SchemaMigration):
             ('mural', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['murals.Mural'])),
             ('material_value', self.gf('django.db.models.fields.CharField')(max_length=100)),
         ))
-        db.send_create_signal('muralist', ['MuralMaterial'])
+        db.send_create_signal('murals', ['MuralMaterial'])
 
         # Adding model 'Memory'
         db.create_table('murals_memory', (
@@ -177,7 +177,7 @@ class Migration(SchemaMigration):
             ('media_type', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
         ))
-        db.send_create_signal('muralist', ['Memory'])
+        db.send_create_signal('murals', ['Memory'])
     
     
     def backwards(self, orm):
@@ -361,4 +361,4 @@ class Migration(SchemaMigration):
         }
     }
     
-    complete_apps = ['muralist']
+    complete_apps = ['murals']
