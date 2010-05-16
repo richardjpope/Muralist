@@ -1,7 +1,7 @@
 import simplejson as json
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from frontend import models
+import models
 
 def index (request):
 
