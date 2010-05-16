@@ -1,4 +1,4 @@
-from muralist.models import *
+from murals.models import *
 from django.contrib import admin
 
 # Murals

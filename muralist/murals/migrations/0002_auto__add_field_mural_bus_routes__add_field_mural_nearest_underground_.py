@@ -9,29 +9,29 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         
         # Adding field 'Mural.bus_routes'
-        db.add_column('frontend_mural', 'bus_routes', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True), keep_default=False)
+        db.add_column('murals_mural', 'bus_routes', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True), keep_default=False)
 
         # Adding field 'Mural.nearest_underground'
-        db.add_column('frontend_mural', 'nearest_underground', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True), keep_default=False)
+        db.add_column('murals_mural', 'nearest_underground', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True), keep_default=False)
 
         # Adding field 'Mural.nearest_railway_station'
-        db.add_column('frontend_mural', 'nearest_railway_station', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True), keep_default=False)
+        db.add_column('murals_mural', 'nearest_railway_station', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True), keep_default=False)
     
     
     def backwards(self, orm):
         
         # Deleting field 'Mural.bus_routes'
-        db.delete_column('frontend_mural', 'bus_routes')
+        db.delete_column('murals_mural', 'bus_routes')
 
         # Deleting field 'Mural.nearest_underground'
-        db.delete_column('frontend_mural', 'nearest_underground')
+        db.delete_column('murals_mural', 'nearest_underground')
 
         # Deleting field 'Mural.nearest_railway_station'
-        db.delete_column('frontend_mural', 'nearest_railway_station')
+        db.delete_column('murals_mural', 'nearest_railway_station')
     
     
     models = {
-        'muralist.artist': {
+        'murals.artist': {
             'Meta': {'object_name': 'Artist'},
             'date_added': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'date_of_birth': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
@@ -49,9 +49,9 @@ class Migration(SchemaMigration):
             'url': ('django.db.models.fields.URLField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
             'wikipedia_uri': ('django.db.models.fields.URLField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'})
         },
-        'muralist.artisteducation': {
+        'murals.artisteducation': {
             'Meta': {'object_name': 'ArtistEducation'},
-            'artist': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['muralist.Artist']"}),
+            'artist': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['murals.Artist']"}),
             'course_name': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'end_date': ('django.db.models.fields.DateField', [], {}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
@@ -59,22 +59,22 @@ class Migration(SchemaMigration):
             'notes': ('django.db.models.fields.TextField', [], {'max_length': '300', 'null': 'True', 'blank': 'True'}),
             'start_date': ('django.db.models.fields.DateField', [], {})
         },
-        'muralist.artistnonmuralwork': {
+        'murals.artistnonmuralwork': {
             'Meta': {'object_name': 'ArtistNonMuralWork'},
-            'artist': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['muralist.Artist']"}),
+            'artist': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['murals.Artist']"}),
             'date': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'notes': ('django.db.models.fields.TextField', [], {'max_length': '300', 'null': 'True', 'blank': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
-        'muralist.memory': {
+        'murals.memory': {
             'Meta': {'object_name': 'Memory'},
             'date_added': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'date_of_interview': ('django.db.models.fields.DateField', [], {}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'media_type': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'memory_text': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
-            'mural': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['muralist.Mural']"}),
+            'mural': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['murals.Mural']"}),
             'notes': ('django.db.models.fields.TextField', [], {'max_length': '300', 'null': 'True', 'blank': 'True'}),
             'person_description': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'person_name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
@@ -84,10 +84,10 @@ class Migration(SchemaMigration):
             'uri': ('django.db.models.fields.URLField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
             'uri_slug': ('django.db.models.fields.SlugField', [], {'max_length': '50', 'db_index': 'True'})
         },
-        'muralist.mural': {
+        'murals.mural': {
             'Meta': {'object_name': 'Mural'},
             'address': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
-            'artists': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['muralist.Artist']", 'null': 'True', 'blank': 'True'}),
+            'artists': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['murals.Artist']", 'null': 'True', 'blank': 'True'}),
             'bus_routes': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'condition_description': ('django.db.models.fields.TextField', [], {'max_length': '300', 'null': 'True', 'blank': 'True'}),
             'condition_rank': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
@@ -109,53 +109,53 @@ class Migration(SchemaMigration):
             'width': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
             'wikipedia_uri': ('django.db.models.fields.URLField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'})
         },
-        'muralist.muralalternativename': {
+        'murals.muralalternativename': {
             'Meta': {'object_name': 'MuralAlternativeName'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'mural': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['muralist.Mural']"}),
+            'mural': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['murals.Mural']"}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
-        'muralist.muralbuildingattribute': {
+        'murals.muralbuildingattribute': {
             'Meta': {'object_name': 'MuralBuildingAttribute'},
             'attribute_type': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'attribute_value': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'description': ('django.db.models.fields.TextField', [], {'max_length': '300', 'null': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'mural': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['muralist.Mural']"})
+            'mural': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['murals.Mural']"})
         },
-        'muralist.muralcolour': {
+        'murals.muralcolour': {
             'Meta': {'object_name': 'MuralColour'},
             'hex_value': ('django.db.models.fields.CharField', [], {'max_length': '6'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'mural': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['muralist.Mural']"})
+            'mural': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['murals.Mural']"})
         },
-        'muralist.muralevent': {
+        'murals.muralevent': {
             'Meta': {'object_name': 'MuralEvent'},
             'date': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
             'description': ('django.db.models.fields.TextField', [], {'max_length': '300', 'null': 'True', 'blank': 'True'}),
             'fuzzy': ('django.db.models.fields.BooleanField', [], {'default': 'False', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'mural': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['muralist.Mural']"}),
+            'mural': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['murals.Mural']"}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
-        'muralist.muralfunder': {
+        'murals.muralfunder': {
             'Meta': {'object_name': 'MuralFunder'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'mural': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['muralist.Mural']"}),
+            'mural': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['murals.Mural']"}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'notes': ('django.db.models.fields.TextField', [], {'max_length': '300', 'null': 'True', 'blank': 'True'}),
             'uri': ('django.db.models.fields.URLField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'})
         },
-        'muralist.muralmaterial': {
+        'murals.muralmaterial': {
             'Meta': {'object_name': 'MuralMaterial'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'material_type': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'material_value': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'mural': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['muralist.Mural']"})
+            'mural': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['murals.Mural']"})
         },
-        'muralist.workshop': {
+        'murals.workshop': {
             'Meta': {'object_name': 'Workshop'},
-            'artists': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['muralist.Artist']", 'null': 'True', 'blank': 'True'}),
+            'artists': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['murals.Artist']", 'null': 'True', 'blank': 'True'}),
             'date_added': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'end_date': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),

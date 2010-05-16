@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
-from frontend import views as muralist_views
+from murals import views as muralist_views
 import settings
 
 admin.autodiscover()
