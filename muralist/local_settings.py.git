@@ -10,8 +10,16 @@ DATABASE_PASSWORD = ''
 DATABASE_HOST = ''
 DATABASE_PORT = ''
 
+
+PROJECT_DIR = ''
+
 # Absolute path to the directory that holds media.
-MEDIA_ROOT = ''
+MEDIA_ROOT = PROJECT_DIR + '/media'
+
+# templates
+TEMPLATE_DIRS = (
+    PROJECT_DIR + "/templates"
+)
 
 
 #admins

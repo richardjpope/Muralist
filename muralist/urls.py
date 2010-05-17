@@ -11,5 +11,6 @@ urlpatterns = patterns('',
     
     # static media server for the dev sites / local dev
     url(r'^media/(?P<path>.*)$',       'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes':True}),
+    url(r'^media-admin/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ADMIN_DIR, 'show_indexes':True}),    
     
 )
