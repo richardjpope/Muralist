@@ -7,6 +7,10 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', muralist_views.index, name="index"),
+    url(r'^murals/$', muralist_views.murals, name="murals"),    
+    url(r'^murals/(?P<uri_slug>[\w_\-]+)/$', muralist_views.mural, name="mural"),
+    url(r'^artists/$', muralist_views.artists, name="artists"),        
+    url(r'^artists/(?P<uri_slug>[\w_\-]+)/$', muralist_views.artist, name="artist"),    
     (r'^admin/', include(admin.site.urls)),    
     (r'^admin/(.*)', admin.site.root),
     

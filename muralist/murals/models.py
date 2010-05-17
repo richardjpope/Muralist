@@ -1,5 +1,6 @@
 from django.db import models
 import managers.mural
+import managers.artist
 
 # Artists
 class Artist(models.Model):
@@ -22,6 +23,7 @@ class Artist(models.Model):
     published = models.BooleanField(help_text='show or hide this item on the website')    
         
     objects = models.Manager()
+    published_objects = managers.artist.ArtistManager()
     
     def __unicode__(self):
         return self.name
