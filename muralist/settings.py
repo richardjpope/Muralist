@@ -41,7 +41,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
 
-ROOT_URLCONF = 'muralist.urls'
+ROOT_URLCONF = 'urls'
 
 
 INSTALLED_APPS = (
