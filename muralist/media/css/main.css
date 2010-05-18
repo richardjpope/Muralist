@@ -112,4 +112,6 @@ div.highlight {background:#ffffd7; padding:1em; margin-bottom: 0.5em;}
 /* Front page */
 #divFrontMap {height:400px;}
 
-p.intro {font-size:1.5em;}
+p.intro {font-size:1.5em; margin-top:0;}
+p.byline {font-size:0.9em;border-top:solid 1px #808080;border-bottom:solid 1px #808080;
+    padding:0.5em 0;}

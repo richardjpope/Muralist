@@ -119,7 +119,7 @@ class MuralAlternativeName(models.Model):
         
     mural = models.ForeignKey(Mural)
     name = models.CharField(max_length = 100, null=False, blank=False, verbose_name='An alternative name')
-    
+        
     def __unicode__(self):
         return self.name
     
