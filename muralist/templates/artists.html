@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Hello!{% endblock %}
+{% block content %}
+    <div class="content full">
+        <ul>
+            {% for artist in artists %}
+                <li>
+                   <a href="{% url artist artist.uri_slug %}">{{artist.name}}</a>
+                </li>
+        	{% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+{% block run_script %}setupFrontMap();{% endblock %}
