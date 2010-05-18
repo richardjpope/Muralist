@@ -3,6 +3,12 @@
 {% block content %}
     <div class="content left col">
         <h1>{{mural.title}}</h1>
+        <p class="intro">
+            {{mural.short_description}}
+        </p>
+        <div class="story">
+            {{mural.long_description|escape|linebreaks}}
+        </div>
     </div>
     <div class="content right col">
         

@@ -18,6 +18,7 @@ class Artist(models.Model):
     lng_of_birth = models.FloatField(null=True, blank=True, verbose_name='Longitude of birth')
     url = models.URLField(verify_exists=True, max_length=200, null=True, blank=True, verbose_name='URL for Website belonging to the artist')
     wikipedia_uri = models.URLField(verify_exists=True, max_length=200, null=True, blank=True, verbose_name='URL for Wikipedia page for the artist')
+    lost = models.BooleanField(help_text='This mural was no longer exists')        
     notes = models.TextField(max_length = 300, null=True, blank=True, verbose_name='Research notes', help_text="These do not get published")    
     uri_slug = models.SlugField()
     published = models.BooleanField(help_text='show or hide this item on the website')    
