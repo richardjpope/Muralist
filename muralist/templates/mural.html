@@ -3,6 +3,9 @@
 {% block content %}
     <div class="content left col">
         <h1>{{mural.title}}</h1>
+        <p class="byline">
+            {% include 'shared/mural_byline.html' %}            
+        </p>
         <p class="intro">
             {{mural.short_description}}
         </p>
@@ -11,7 +14,6 @@
         </div>
     </div>
     <div class="content right col">
-        
     </div>
 {% endblock %}
 {% block run_script %}setupFrontMap();{% endblock %}

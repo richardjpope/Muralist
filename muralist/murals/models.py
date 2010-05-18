@@ -86,6 +86,7 @@ class Mural(models.Model):
     title = models.CharField(max_length = 100, null=False, blank=False, verbose_name='Primary name of mural')
     short_description = models.TextField(max_length = 300, null=True, blank=True, help_text="keep this short and concise")
     long_description = models.TextField(null=True, blank=True)
+    locality = models.CharField(max_length = 255, null=True, blank=True, help_text='how you would describe it to someone in conversation e.g. Hackney or Wandsworth')    
     address = models.CharField(max_length = 255, null=False, blank=False, verbose_name='Address of the mural')    
     location_description = models.TextField(max_length = 255, null=False, blank=False, verbose_name='How to find it', help_text="explain where to stand and look to find the mural")    
     lat = models.FloatField(null=False, blank=False, verbose_name='Latitude of mural', help_text="as a decimal number")
