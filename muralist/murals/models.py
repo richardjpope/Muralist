@@ -102,7 +102,7 @@ class Mural(models.Model):
     notes = models.TextField(max_length = 300, null=True, blank=True, verbose_name='Research notes', help_text="These do not get published")    
     nearest_underground = models.CharField(max_length = 100, null=True, blank=True, help_text='Name of one or more tubes stations')
     nearest_railway_station = models.CharField(max_length = 100, null=True, blank=True, help_text='Name of one or more railway stations')    
-    bus_routes = models.CharField(max_length = 100, null=True, blank=True, help_text='Name of one or more bus routes')        
+    bus_routes = models.CharField(max_length = 100, null=True, blank=True, help_text='Name of one or more bus routes separated by commas')        
     uri_slug = models.SlugField()
     artists = models.ManyToManyField(Artist, blank=True, null=True)
 
