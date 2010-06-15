@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}{{mural.title}} mural, {{mural.locality}}{% endblock %}
+{% block content %}
+    <div class="content left col">
+        <h1>{{mural.title}}</h1>
+        <p class="byline">
+            {% include 'shared/mural_byline.html' %}            
+        </p>
+        <p class="intro">
+            {{mural.short_description}}
+        </p>
+        <div class="story">
+            {{mural.long_description|escape|linebreaks}}
+        </div>
+    </div>
+    <div class="content right col">
+        <div class="meta">
+            {% if mural.muralaletrnativename_set.all %}
+                <h4>Alternative names</h4>            
+                {% for alternative_name in mural.muralaletrnativename_set.all %}
+                    {{alternative_name.name}}
+                {% endfor %}
+            {% endif %}
+            {% if mural.muralfunder_set.all %}
+                <h4>Funding</h4>
+                {% for funder in mural.muralfunder_set.all %}
+                    {{funder.name}}
+                {% endfor %}
+            {% endif %}
+            {% if mural.muralmaterial_set.all %}
+                <h4>Materials</h4>
+                {% for material in mural.muralmaterial_set.all %}
+                    <strong>{{material.material_type|title}}:</strong>
+                    {{material.material_value}}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+{% block run_script %}setupFrontMap();{% endblock %}

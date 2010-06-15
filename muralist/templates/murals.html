@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Murals{% endblock %}
+{% block content %}
+    <div class="content full">
+        <ul>
+            {% for mural in murals %}
+                <li>
+                    <a href="{% url mural mural.uri_slug %}">{{mural.title}}</a>
+                </li>
+        	{% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+{% block run_script %}setupFrontMap();{% endblock %}
