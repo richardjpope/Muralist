@@ -15,10 +15,31 @@
     </div>
     <div class="content right col">
         <div class="meta">
-            <h4>How to find it</h4>
+            <h4>Where to find it</h4>
             <p>
                 {{mural.location_description}}
             </p>
+            {% if mural.bus_routes or mural.nearest_underground or mural.nearest_underground %}
+                <h4>How to get there</h4>
+                <dl>
+                    {% if mural.bus_routes %}
+                        <dt>bus</dt>
+                        <dd>{{mural.bus_routes}}</dd>
+                    {% endif %}
+                    {% if mural.bus_routes %}
+                        <dt>Bus</dt>
+                        <dd>{{mural.bus_routes}}</dd>
+                    {% endif %}
+                    {% if mural.nearest_railway_station %}
+                        <dt>Train</dt>
+                        <dd>{{mural.nearest_railway_station}}</dd>
+                    {% endif %}                
+                    {% if mural.nearest_underground %}
+                        <dt>Tube</dt>
+                        <dd>{{mural.nearest_underground}}</dd>
+                    {% endif %}                
+                </dl>
+            {% endif %}
             {% if mural.muralaletrnativename_set.all %}
                 <h4>Alternative names</h4>            
                 {% for alternative_name in mural.muralaletrnativename_set.all %}
