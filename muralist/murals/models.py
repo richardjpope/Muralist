@@ -191,7 +191,7 @@ class MuralMaterial(models.Model):
 class Memory(models.Model):
     class Meta:
                verbose_name_plural = "Memories"
-               
+         
     MEDIA_CHOICES = (
         ('text', 'Text'),
         ('youtube', 'Video (YouTube.com)'),
