@@ -3,6 +3,11 @@
 {% block content %}
     <div class="content left col">
         <h1>{{mural.title}}</h1>
+        <div>
+            {% for thumbnail in thumbnails %}
+                <img src="{{thumbnail}}" />
+            {% endfor %}
+        </div>
         <p class="byline">
             {% include 'shared/mural_byline.html' %}            
         </p>
@@ -59,5 +64,8 @@
                 {% endfor %}
             {% endif %}
         </div>
+        <p class="user_action">
+            Tag photos of this mural with <code>lmps:mural={{mural.id}}</code> on Flickr
+        </p>
     </div>
 {% endblock %}

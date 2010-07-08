@@ -82,12 +82,12 @@ class Mural(models.Model):
         ordering = ['title']
 
     CONDITION_CHOICES = ((1, '1'),(2, '2'),(3, '3'),(4, '4'),(5, '5'),(6, '6'),(7, '7'),(8, '8'),(9, '9'),(10, '10'),)
-    
+
     title = models.CharField(max_length = 100, null=False, blank=False, verbose_name='Primary name of mural')
     short_description = models.TextField(max_length = 300, null=True, blank=True, help_text="keep this short and concise")
     long_description = models.TextField(null=True, blank=True)
     locality = models.CharField(max_length = 255, null=True, blank=True, help_text='how you would describe it to someone in conversation e.g. Hackney or Wandsworth')    
-    address = models.CharField(max_length = 255, null=False, blank=False, verbose_name='Address of the mural')    
+    address = models.CharField(max_length = 255, null=False, blank=False, verbose_name='Address of the mural')
     location_description = models.TextField(max_length = 255, null=False, blank=False, verbose_name='How to find it', help_text="explain where to stand and look to find the mural")    
     lat = models.FloatField(null=False, blank=False, verbose_name='Latitude of mural', help_text="as a decimal number")
     lng = models.FloatField(null=False, blank=False, verbose_name='Longitude of mural', help_text="as a decimal number")
@@ -164,7 +164,7 @@ class MuralBuildingAttribute(models.Model):
         ('ownership', 'Ownership'),
         ('other', 'Other'),
     )
-    mural = models.ForeignKey(Mural)    
+    mural = models.ForeignKey(Mural)
     attribute_type = models.CharField(max_length = 100, null=False, blank=False, choices=BUILDING_CHOICES)    
     attribute_value = models.CharField(max_length = 100, null=False, blank=False)    
     description = models.TextField(max_length = 300, null=True, blank=True,verbose_name='Short description')    
@@ -181,7 +181,7 @@ class MuralMaterial(models.Model):
     )
 
     mural = models.ForeignKey(Mural)
-    material_type = models.CharField(max_length = 100, null=False, blank=False, choices=MATERIAL_CHOICES)    
+    material_type = models.CharField(max_length = 100, null=False, blank=False, choices=MATERIAL_CHOICES)
     material_value = models.CharField(max_length = 100, null=False, blank=False)
 
     def __unicode__(self):
@@ -191,7 +191,7 @@ class MuralMaterial(models.Model):
 class Memory(models.Model):
     class Meta:
                verbose_name_plural = "Memories"
-         
+
     MEDIA_CHOICES = (
         ('text', 'Text'),
         ('youtube', 'Video (YouTube.com)'),
@@ -206,7 +206,7 @@ class Memory(models.Model):
     person_description = models.CharField(max_length = 100, null=True, blank=True, help_text="e.g. Brixton resident / artist")
     date_of_interview = models.DateField(null=False, blank=False)
     uri = models.URLField(verify_exists=True, max_length=200, null=True, blank=True, verbose_name='URL for video or audio', help_text="YouTube or AudioBoo web page")
-    memory_text = models.TextField(null=True, blank=True, help_text="Only use this for a written memory")        
+    memory_text = models.TextField(null=True, blank=True, help_text="Only use this for a written memory")
     notes = models.TextField(max_length = 300, null=True, blank=True, verbose_name='Research notes', help_text="These do not get published")        
     published = models.BooleanField(help_text='show or hide this item on the website')
     uri_slug = models.SlugField()

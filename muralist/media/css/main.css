@@ -1,6 +1,7 @@
 /* Resets */
 h1, h2, h3, h4, h5, h6 {padding:0; margin:0; }
 img {border:none;}
+code {background:#ccc; color:#333; padding:0 0.6em;}
 
 body {text-align:center; padding:0; margin:0; font-family:Helvetica, arial, sans-serif; border-top:solid 20px #7AB6DB; color:#351A13;}
 #divPage {width:960px; text-align:left; margin:0 auto; position:relative; font-size:100%;}
@@ -124,3 +125,6 @@ dl.transport_routes dt.tube {background: url(../images/tube.png) no-repeat}
 dl.transport_routes dt.train {background: url(../images/train.png) no-repeat}
 dl.transport_routes dt span {display:none;}
 dl.transport_routes dd {min-height:20px;padding-top:0.5em;}
+
+/* user action */
+.user_action {border-top:solid 5px #ffffa0;border-bottom:solid 5px #ffffa0;padding:1em 0;}
