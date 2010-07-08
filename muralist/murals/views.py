@@ -16,6 +16,7 @@ def index (request):
     return render_to_response('index.html', {'murals_json': json.dumps(murals_clean),}, context_instance = RequestContext(request))
     
 def murals (request):
+
     murals = models.Mural.published_objects.all()
     return render_to_response('murals.html', {'murals': murals,}, context_instance = RequestContext(request))
 
@@ -26,11 +27,11 @@ def mural(request, uri_slug):
 
     #get photos
     flickr = flickrapi.FlickrAPI(settings.FLICKR_API_KEY)
-    photos = flickr.photos_search(tag_mode='all', machine_tags='lmps:mural=' + str(mural.id))
+    photos = flickr.photos_search(tag_mode='all', machine_tags='lmps:mural=' + str(mural.id), page=1, per_page=5)
     thumbnails = []
     for photo in photos[0]:
     	photoSizes = flickr.photos_getSizes(photo_id=photo.attrib['id'])
-    	thumbnails.append(photoSizes[0][1].attrib['source'])
+    	thumbnails.append(photoSizes[0][0].attrib['source'])
 
     
     return render_to_response('mural.html', {'mural': mural, 'thumbnails': thumbnails}, context_instance = RequestContext(request))        
