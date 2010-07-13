@@ -5,16 +5,21 @@ from django.shortcuts import get_object_or_404
 import models
 import settings
 import flickrapi
+import feedparser
 
 def index (request):
 
+    #get blog rss feed
+    blog_items = feedparser.parse(settings.BLOG_FEED)    
+
+    #get murals for map
     murals = models.Mural.published_objects.all()
     murals_clean = []
     for mural in murals:
         murals_clean.append({'title': mural.title, 'lat': mural.lat, 'lng': mural.lng})
 
-    return render_to_response('index.html', {'murals_json': json.dumps(murals_clean),}, context_instance = RequestContext(request))
-    
+    return render_to_response('index.html', {'murals_json': json.dumps(murals_clean), 'blog_items': blog_items['entries']}, context_instance = RequestContext(request))
+
 def murals (request):
 
     murals = models.Mural.published_objects.all()
@@ -33,7 +38,7 @@ def mural(request, uri_slug):
     	photoSizes = flickr.photos_getSizes(photo_id=photo.attrib['id'])
     	thumbnails.append(photoSizes[0][0].attrib['source'])
 
-    
+
     return render_to_response('mural.html', {'mural': mural, 'thumbnails': thumbnails}, context_instance = RequestContext(request))        
 
 

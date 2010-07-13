@@ -2,3 +2,5 @@ Django
 south
 simplejson
 flickrapi
+feedparser
+hg+http://bitbucket.org/hakanw/django-better-chunks
