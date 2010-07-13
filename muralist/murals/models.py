@@ -18,11 +18,10 @@ class Artist(models.Model):
     lng_of_birth = models.FloatField(null=True, blank=True, verbose_name='Longitude of birth')
     url = models.URLField(verify_exists=True, max_length=200, null=True, blank=True, verbose_name='URL for Website belonging to the artist')
     wikipedia_uri = models.URLField(verify_exists=True, max_length=200, null=True, blank=True, verbose_name='URL for Wikipedia page for the artist')
-    lost = models.BooleanField(help_text='This mural was no longer exists')        
     notes = models.TextField(max_length = 300, null=True, blank=True, verbose_name='Research notes', help_text="These do not get published")    
     uri_slug = models.SlugField()
     published = models.BooleanField(help_text='show or hide this item on the website')    
-        
+
     objects = models.Manager()
     published_objects = managers.artist.ArtistManager()
     
@@ -88,7 +87,7 @@ class Mural(models.Model):
     long_description = models.TextField(null=True, blank=True)
     locality = models.CharField(max_length = 255, null=True, blank=True, help_text='how you would describe it to someone in conversation e.g. Hackney or Wandsworth')    
     address = models.CharField(max_length = 255, null=False, blank=False, verbose_name='Address of the mural')
-    location_description = models.TextField(max_length = 255, null=False, blank=False, verbose_name='How to find it', help_text="explain where to stand and look to find the mural")    
+    location_description = models.TextField(max_length = 255, null=False, blank=False, verbose_name='How to find it', help_text="explain where to stand and look to find the mural")
     lat = models.FloatField(null=False, blank=False, verbose_name='Latitude of mural', help_text="as a decimal number")
     lng = models.FloatField(null=False, blank=False, verbose_name='Longitude of mural', help_text="as a decimal number")
     width = models.IntegerField(null=True, blank=True, verbose_name='Width of the mural', help_text="in meters")
@@ -96,22 +95,43 @@ class Mural(models.Model):
     date_added = models.DateTimeField(auto_now_add = True, verbose_name='Date mural was added to this database')
     date_completed = models.DateField(null=True, blank=True, verbose_name='Date the mural was completed', help_text="this also needs adding to the 'events' section")
     wikipedia_uri = models.URLField(verify_exists=True, max_length=200, null=True, blank=True, verbose_name='URL for Wikipedia page for the mural')
-    condition_rank = models.IntegerField(null=True, blank=True, verbose_name='Condition 1-10 (10 is best)', choices = CONDITION_CHOICES)
+    lost = models.BooleanField(help_text='This mural was no longer exists')    
+    condition_rank = models.IntegerField(null=True, blank=True, verbose_name='Condition 1-10', help_text='1-3 is in danger, 4-7 is ok, 8-10 is good', choices = CONDITION_CHOICES)
     condition_description = models.TextField(max_length = 300, null=True, blank=True, verbose_name='Description of the condition / state of repair')    
     published = models.BooleanField(help_text='show or hide this item on the website')        
     notes = models.TextField(max_length = 300, null=True, blank=True, verbose_name='Research notes', help_text="These do not get published")    
     nearest_underground = models.CharField(max_length = 100, null=True, blank=True, help_text='Name of one or more tubes stations')
     nearest_railway_station = models.CharField(max_length = 100, null=True, blank=True, help_text='Name of one or more railway stations')    
-    bus_routes = models.CharField(max_length = 100, null=True, blank=True, help_text='Name of one or more bus routes separated by commas')        
+    bus_routes = models.CharField(max_length = 100, null=True, blank=True, help_text='Name of one or more bus routes separated by commas')
     uri_slug = models.SlugField()
     artists = models.ManyToManyField(Artist, blank=True, null=True)
 
     objects = models.Manager()
     published_objects = managers.mural.MuralManager()
-    
 
     def __unicode__(self):
         return self.title
+
+    def condition_text(self):
+        result = 'is in good condition'         
+        if self.lost:
+            result = 'has been lost'
+        elif self.condition_rank <= 3:
+            result = 'is under threat'
+        elif self.condition_rank <= 7:
+            result = 'is in OK condition'
+        return result
+        
+    def condition_tag(self):
+        result = 'good'
+        if self.lost:
+            result = 'lost'
+        elif self.condition_rank <= 3:
+            result = 'threat'
+        elif self.condition_rank <= 7:
+            result = 'ok'
+
+        return result
         
 class MuralAlternativeName(models.Model):
     class Meta:

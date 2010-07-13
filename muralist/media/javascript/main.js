@@ -18,7 +18,6 @@ function setupFrontMap(){
           displayProjection: new OpenLayers.Projection("EPSG:4326")
       } );
 
-
      var cloudmade = new OpenLayers.Layer.CloudMade("CloudMade", {
          key: 'f0a3ed3f086e42bbb3691bef27581977',
          styleId: 17368
@@ -30,9 +29,12 @@ function setupFrontMap(){
       oMap.addLayer(oMarkersLayer);      
 
      // Make icon
-     var oIconSize = new OpenLayers.Size(21,25);
+     var oIconSize = new OpenLayers.Size(42,54);
      var oIconOffset = new OpenLayers.Pixel(-(oIconSize.w/2), -oIconSize.h);
-     var oIcon = new OpenLayers.Icon('http://www.openstreetmap.org/openlayers/img/marker.png',oIconSize, oIconOffset);
+     var oIconGood = new OpenLayers.Icon('/site-media/images/brush_good.png',oIconSize, oIconOffset);
+      var oIconOK = new OpenLayers.Icon('/site-media/images/brush_ok.png',oIconSize, oIconOffset);
+     var oIconThreat = new OpenLayers.Icon('/site-media/images/brush_threat.png',oIconSize, oIconOffset);     
+     var oIconLost = new OpenLayers.Icon('/site-media/images/brush_lost.png',oIconSize, oIconOffset);           
 
      var oData = eval('('+ $('#hidMapData').val() + ')');
 
@@ -44,7 +46,18 @@ function setupFrontMap(){
         var oLngLat = new OpenLayers.LonLat(iLng, iLat).transform(new OpenLayers.Projection("EPSG:4326"), oMap.getProjectionObject());         
 
         //make the marker
-        var oMarker = new OpenLayers.Marker(oLngLat,oIcon.clone())
+        oIconAdd = null
+        if(oData[i].condition_tag == 'lost'){
+          oIconAdd = oIconLost.clone();
+        }else if (oData[i].condition_tag == 'good'){
+          oIconAdd = oIconGood.clone();            
+        }else if (oData[i].condition_tag == 'threat'){
+          oIconAdd = oIconThreat.clone();
+        }else{
+          oIconAdd = oIconOK.clone();            
+        }
+
+        var oMarker = new OpenLayers.Marker(oLngLat,oIconAdd)
         oMarkersLayer.addMarker(oMarker);
 
     }
