@@ -62,7 +62,7 @@
                         <dd>
                             {% for event in mural.muralevent_set.all %}                                        
                                 {% ifequal year event.date.year %}
-                                    {{event.title}}: {{event.detail}}
+                                    {{event.title}}: {{event.description}}
                                 {% endifequal %}                            
                             {% endfor %}
                         </dd>
