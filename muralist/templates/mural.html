@@ -54,20 +54,22 @@
             {% endif %}
             
             {# Timeline #}
-            <h4>Timeline</h4>
-            <dl class="timeline">
-                   {% for year in mural.event_years %}                
-                    <dt>{{year}}</dt>
-                    <dd>
-                        {% for event in mural.muralevent_set.all %}                                        
-                            {% ifequal year event.date.year %}
-                                {{event.title}}
-                            {% endifequal %}                            
-                        {% endfor %}
-                    </dd>
-                   {% endfor %}                   
-            </dl>
-            <br class="clear"/>
+            {% if mural.event_years %}            
+                <h4>Timeline</h4>
+                <dl class="timeline">
+                       {% for year in mural.event_years %}                
+                        <dt>{{year}}</dt>
+                        <dd>
+                            {% for event in mural.muralevent_set.all %}                                        
+                                {% ifequal year event.date.year %}
+                                    {{event.title}}
+                                {% endifequal %}                            
+                            {% endfor %}
+                        </dd>
+                       {% endfor %}                   
+                </dl>
+                <br class="clear"/>
+            {% endif %}
             
             {% if mural.muralaletrnativename_set.all %}
                 <h4>Alternative names</h4>
