@@ -54,7 +54,7 @@
             {% endif %}
             
             {# Timeline #}
-            {% if mural.event_years %}            
+            {% if mural.muralevent_set.all %}            
                 <h4>Timeline</h4>
                 <dl class="timeline">
                        {% for year in mural.event_years %}                
@@ -62,7 +62,7 @@
                         <dd>
                             {% for event in mural.muralevent_set.all %}                                        
                                 {% ifequal year event.date.year %}
-                                    {{event.title}}
+                                    {{event.title}}: {{event.detail}}
                                 {% endifequal %}                            
                             {% endfor %}
                         </dd>
