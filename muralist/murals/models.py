@@ -105,6 +105,7 @@ class Mural(models.Model):
     bus_routes = models.CharField(max_length = 100, null=True, blank=True, help_text='Name of one or more bus routes separated by commas')
     uri_slug = models.SlugField()
     artists = models.ManyToManyField(Artist, blank=True, null=True)
+    
 
     objects = models.Manager()
     published_objects = managers.mural.MuralManager()
@@ -121,7 +122,7 @@ class Mural(models.Model):
         elif self.condition_rank <= 7:
             result = 'is in OK condition'
         return result
-        
+
     def condition_tag(self):
         result = 'good'
         if self.lost:
@@ -132,14 +133,24 @@ class Mural(models.Model):
             result = 'ok'
 
         return result
-        
+
+    def event_years(self):
+        years = []
+        events = self.muralevent_set.all()        
+        year = int(events[0].date.year)       
+        end_year = events[len(events) -1].date.year
+        while (year <= end_year):
+            years.append(year)
+            year = year + 1
+        return years  
+
 class MuralAlternativeName(models.Model):
     class Meta:
         ordering = ['name']
         
     mural = models.ForeignKey(Mural)
     name = models.CharField(max_length = 100, null=False, blank=False, verbose_name='An alternative name')
-        
+
     def __unicode__(self):
         return self.name
     

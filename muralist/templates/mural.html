@@ -17,6 +17,7 @@
         <div class="story">
             {{mural.long_description|escape|linebreaks}}
         </div>
+        
     </div>
     <div class="content right col">
         <div class="condition">
@@ -51,6 +52,23 @@
                     {% endif %}                
                 </dl>
             {% endif %}
+            
+            {# Timeline #}
+            <h4>Timeline</h4>
+            <dl class="timeline">
+                   {% for year in mural.event_years %}                
+                    <dt>{{year}}</dt>
+                    <dd>
+                        {% for event in mural.muralevent_set.all %}                                        
+                            {% ifequal year event.date.year %}
+                                {{event.title}}
+                            {% endifequal %}                            
+                        {% endfor %}
+                    </dd>
+                   {% endfor %}                   
+            </dl>
+            <br class="clear"/>
+            
             {% if mural.muralaletrnativename_set.all %}
                 <h4>Alternative names</h4>
                 {% for alternative_name in mural.muralaletrnativename_set.all %}

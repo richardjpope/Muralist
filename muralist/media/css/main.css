@@ -134,3 +134,9 @@ div.condition span img {vertical-align:middle; margin-right:10px;}
 
 /* user action */
 .user_action {border-top:solid 5px #ffffa0;border-bottom:solid 5px #ffffa0;padding:1em 0;}
+
+
+/* Timelines */
+dl.timeline {color:#808080; font-size:0.8em;}
+dl.timeline dt {float:left;border-right:solid 3px #ccc;clear:left; width:4em;}
+dl.timeline dd {float:left;padding-left:0.3em;margin-left:0;}
