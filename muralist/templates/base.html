@@ -2,6 +2,7 @@
 <html lang="en">
 	<head>
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	    <link href='http://fonts.googleapis.com/css?family=Molengo' rel='stylesheet' type='text/css'>
 	    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/main.css" />
 	    <script type="text/javascript" src="http://www.openlayers.org/api/OpenLayers.js"></script>
         <script type="text/javascript" src="{{ MEDIA_URL }}javascript/cloudmade.js"></script>	    	    
@@ -19,25 +20,23 @@
 	        
                 {# Logo #}
                 <div id="divLogo">
-    				<p>
-    				    <a href="{% url index %}"><span class="hideX">London Mural Preservation Society</span></a>
-    			    </p>
+    				    <a href="{% url index %}"><span class="hide">London Mural Preservation Society</span></a>
     			</div>
 		
     		    {# Menu #}
     			<div id="divMenu">
     			    <ul class="main_menu">
     				    <li>
-    				        <a href="{% url index %}" title="Home">Home</a>
+    				        <a href="{% url murals %}" title="Murals">London Murals</a>
     				    </li>
     				    <li>
-    				        <a href="{% url murals %}" title="Murals">Murals</a>
+    				        <a href="{% url index %}about/" title="About">Blog</a>
     				    </li>
     				    <li>
-    				        <a href="{% url artists %}" title="Artists">Artists</a>
+    				        <a href="{% url index %}about/" title="About">Who we are</a>
     				    </li>
-    				    <li>
-    				        <a href="{% url index %}about/" title="About">About</a>
+    				    <li class="last">
+    				        <a href="http://www.facebook.com/group.php?gid=117071124970415" class="facebook_link" title="Get involved">Get involved!</a>
     				    </li>
     				</ul>
 
@@ -61,19 +60,20 @@
     	    <div id="divContent">
       
     		    {% block content %}{% endblock %}
+    		    <br class="clear"/>
     	    </div>			
+    	    {% block footer %}
+    			<div id="divFooter">
+    	             <ul>
+    	                 <li><a href="#">About</a></li>
+    	                 <li><a href="http://londonmuralpreservationsociety.wordpress.com/">Blog</a></li>
+    	             </ul>
+    				<div>
+    				        &copy; London Mural Preservation Society
+    				</div>
+    			</div>
+    		{% endblock %}
     	</div>
-    	{% block footer %}
-			<div id="divFooter">
-	             <ul>
-	                 <li><a href="#">About</a></li>
-	                 <li><a href="http://londonmuralpreservationsociety.wordpress.com/">Blog</a></li>
-	             </ul>
-				<div>
-				        &copy; London Mural Preservation Society
-				</div>
-			</div>
-		{% endblock %}
         
 		{# Script #}
 	    <script type="text/javascript" defer="defer">
