@@ -9,8 +9,9 @@ body {text-align:center; padding:20px 0 20px 0; margin:0; font-family:'Molengo',
 /* Header & menu */
 #divHeader {padding:0;margin-bottom:1em;
     position:relative;background:#fff; text-align:left;background:rgba(255,255,255,0.9);}
-#divLogo {height:85px; width:85px;padding:10px 3px 3px 20px;}
-#divLogo a {margin:0; display:block;background:url(../images/logo.png) no-repeat; width:85px; height:85px;}
+#divLogo {height:85px; width:200px;padding:10px 3px 3px 20px;}
+#divLogo a.image {margin:0; display:block;background:url(../images/logo.png) no-repeat; width:85px; height:85px;
+    float:left;margin-right:8px;}
 #divMenu {position:absolute; top:18px; right:1.5%; text-align:right; }
 #divMenu ul li {padding:0.3em 0.3em; list-style-type:none; display:inline;
     border-right:dotted 1px #808080; font-size:1.1em;
