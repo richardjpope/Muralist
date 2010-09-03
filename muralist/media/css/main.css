@@ -32,7 +32,7 @@ a.facebook_link {padding-left:30px; background: 0 4px url(../images/facebook.png
 .content .section {padding:1em 0; border-bottom:dotted 1px #ccc;}
 .content h1 {padding-bottom:0.6em;font-size:3em;padding-bottom:0.3em;}
 .content h2 {padding-bottom:0.6em;font-size:1.7em;}
-.content h3 {padding-bottom:0.6em; text-transform:uppercase;}
+.content h3 {padding-bottom:0.6em;}
 .content h4 {padding-bottom:0.6em;text-transform:uppercase;}
 
 /* Attention */
@@ -117,8 +117,10 @@ span.highlight {background:#ffffaa; padding:0 0.4em;}
 div.highlight {background:#ffffd7; padding:1em; margin-bottom: 0.5em;}
 
 /* Front page */
-#divFrontMap {height:400px;}
+#divFrontMap {height:400px; position:relative; top:-20px;}
 .olPopup {border:solid 1px #ccc;}
+.olControlAttribution {position:absolute;right:0;bottom:5px!important;}
+#divIntro {padding-top:0.3em;}
 
 p.intro {font-size:1.5em; margin-top:0;padding-top:1em;}
 p.byline {font-size:1em;border-top:solid 1px #808080;border-bottom:solid 1px #808080;

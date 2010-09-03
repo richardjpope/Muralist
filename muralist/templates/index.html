@@ -4,17 +4,19 @@
 {% block content %}
     <input type="hidden" id="hidMapData" value="{{murals_json}}" />
     <div id="divFrontMap"></div>
-    <div class="content left half">
-        {% chunk "home_1" %}
-    </div>
-    <div class="content right half">        
-        <h3>What we've been up to</h3>
-        {% for blog_item in blog_items %}
-            <li>
-                <h3><a href="{{blog_item.link}}">{{blog_item.title}}</a></h3>
-                <p>{% autoescape off %} {{blog_item.summary}}{% endautoescape %} </p>
-            </li>
-    	{% endfor %}
-    </div>
+    <div id="divIntro">
+        <div class="content left half">
+            {% chunk "home_1" %}
+        </div>
+        <div class="content right half">        
+            <h3>What we've been up to</h3>
+            {% for blog_item in blog_items %}
+                <li>
+                    <h3><a href="{{blog_item.link}}">{{blog_item.title}}</a></h3>
+                    <p>{% autoescape off %} {{blog_item.summary}}{% endautoescape %} </p>
+                </li>
+        	{% endfor %}
+        </div>
+    </div>        
 {% endblock %}
 {% block run_script %}setupFrontMap();{% endblock %}

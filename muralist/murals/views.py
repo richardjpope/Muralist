@@ -18,7 +18,7 @@ def index (request):
     for mural in murals:
         murals_clean.append({'title': mural.title, 'uri_slug': mural.uri_slug, 'lat': mural.lat, 'lng': mural.lng, 'condition_tag': mural.condition_tag(),'condition_text': mural.condition_text(),})
 
-    return render_to_response('index.html', {'murals_json': json.dumps(murals_clean), 'blog_items': blog_items['entries']}, context_instance = RequestContext(request))
+    return render_to_response('index.html', {'murals_json': json.dumps(murals_clean), 'blog_items': blog_items['entries'][:2]}, context_instance = RequestContext(request))
 
 def murals (request):
 
