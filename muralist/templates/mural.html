@@ -21,6 +21,12 @@
         <div class="story">
             {{mural.long_description|escape|linebreaks}}
         </div>
+        {% if mural.condition_description %}
+            <div>
+                <h3>Condition</h3>
+                {{mural.condition_description}}
+            </div>
+        {% endif %}
         <div>
             <h3>Photographs</h3>
             {% for thumbnail in thumbnails %}
@@ -33,11 +39,7 @@
     </div>
     <div class="content right col">
         <div class="condition">
-            <span class="{{mural.condition_tag}}">
-                <img src="{{MEDIA_URL}}/images/brush_{{mural.condition_tag}}.png" />This mural {{mural.condition_text}}</span>
-            <p class="description">
-                {{mural.condition_description}}
-            </p>
+            <span class="{{mural.condition_tag}}"><img src="{{MEDIA_URL}}/images/brush_{{mural.condition_tag}}.png" />This mural {{mural.condition_text}}</span>
         </div>
         <div class="meta">
             <h4>Where to find it</h4>

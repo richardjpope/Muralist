@@ -56,8 +56,16 @@ function setupFrontMap(){
         }else{
           oIconAdd = oIconOK.clone();            
         }
-
+        
         var oMarker = new OpenLayers.Marker(oLngLat,oIconAdd)
+        oMarker.html = '<a href="/murals/' + oData[i].uri_slug + '/">' + oData[i].title + '</a>';
+        oMarker.events.register("mousedown", oMarker,
+                function(o, b){
+                    var oPopup = new OpenLayers.Popup.AnchoredBubble("item", this.lonlat, 
+                        new OpenLayers.Size(160, 60), this.html, this.icon, true);
+                    oMap.addPopup(oPopup, true);
+                }  
+        );
         oMarkersLayer.addMarker(oMarker);
 
     }

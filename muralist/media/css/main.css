@@ -118,6 +118,7 @@ div.highlight {background:#ffffd7; padding:1em; margin-bottom: 0.5em;}
 
 /* Front page */
 #divFrontMap {height:400px;}
+.olPopup {border:solid 1px #ccc;}
 
 p.intro {font-size:1.5em; margin-top:0;padding-top:1em;}
 p.byline {font-size:1em;border-top:solid 1px #808080;border-bottom:solid 1px #808080;
@@ -127,9 +128,9 @@ p.byline {font-size:1em;border-top:solid 1px #808080;border-bottom:solid 1px #80
 div.meta {border-bottom:solid 1px #333;margin-bottom:1em;padding-bottom:1em;}
 dl.transport_routes {padding:0; margin:0 0 1em 0;}
 dl.transport_routes dt {padding:0 8px 0 0; margin:0;width:40px; height:20px; float:left;}
-dl.transport_routes dt.bus {background: url(../images/bus.png) no-repeat;}
-dl.transport_routes dt.tube {background: url(../images/tube.png) no-repeat}
-dl.transport_routes dt.train {background: url(../images/train.png) no-repeat}
+dl.transport_routes dt.bus {background: url(../images/bus.png) no-repeat rgba(255,255,255,0.9);}
+dl.transport_routes dt.tube {background: url(../images/tube.png) no-repeat rgba(255,255,255,0.9)}
+dl.transport_routes dt.train {background: url(../images/train.png) no-repeat rgba(255,255,255,0.9)}
 dl.transport_routes dt span {display:none;}
 dl.transport_routes dd {min-height:20px;padding-top:0.5em;}
 
