@@ -71,7 +71,6 @@ class Workshop(models.Model):
     notes = models.TextField(max_length = 300, null=True, blank=True, verbose_name='Research notes', help_text="These do not get published")    
     uri_slug = models.SlugField()
     published = models.BooleanField(help_text='show or hide this item on the website')            
-    has_header_image = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.name
@@ -106,7 +105,7 @@ class Mural(models.Model):
     bus_routes = models.CharField(max_length = 100, null=True, blank=True, help_text='Name of one or more bus routes separated by commas')
     uri_slug = models.SlugField()
     artists = models.ManyToManyField(Artist, blank=True, null=True)
-    
+    has_header_image = models.BooleanField(default=False)    
 
     objects = models.Manager()
     published_objects = managers.mural.MuralManager()
