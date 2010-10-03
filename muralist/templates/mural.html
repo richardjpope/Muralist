@@ -6,7 +6,9 @@
     </div>
     <div class="content fullplus">
         <div class="slice_image">
-            <img src="{{MEDIA_URL}}/images/temp.png"/>
+            {% if mural.has_header_image %}
+                <img src="{{MEDIA_URL}}/images/headers/{{mural.uri_slug}}.jpg"/>
+            {% endif %}
         </div>                
         <p class="byline">
             {% include 'shared/mural_byline.html' %}            
