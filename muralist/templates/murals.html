@@ -6,7 +6,7 @@
         <ul>
             {% for mural in murals %}
                 <li>
-                    <a href="{% url mural mural.uri_slug %}">{{mural.title}}</a>
+                    <a href="{% url mural mural.uri_slug %}">{{mural.title}}{% if mural.locality %} ({{mural.locality}}){% endif %}</a>
                 </li>
         	{% endfor %}
         </ul>

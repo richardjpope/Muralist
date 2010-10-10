@@ -3,13 +3,14 @@ h1, h2, h3, h4, h5, h6 {padding:0; margin:0;}
 img {border:none;}
 code {background:#ccc; color:#333; padding:0 0.6em;}
 
-body {text-align:center; padding:20px 0 20px 0; margin:0; font-family:'Molengo', Helvetica, arial, sans-serif; color:#351A13; background:url(../images/background_1.jpg);}
+body {text-align:center; padding:20px 0 20px 0; margin:0; font-family:Helvetica, arial, sans-serif; color:#351A13; background:url(../images/background_1.jpg);}
 #divPage {width:960px; text-align:left; margin:0 auto; position:relative; font-size:100%;}
 
 /* Header & menu */
 #divHeader {padding:0;margin-bottom:1em;
     position:relative;background:#fff; text-align:left;background:rgba(255,255,255,0.9);}
 #divLogo {height:85px; width:200px;padding:10px 3px 3px 20px;}
+#divLogo {font-weight:bold;}
 #divLogo a.image {margin:0; display:block;background:url(../images/logo.png) no-repeat; width:85px; height:85px;
     float:left;margin-right:8px;}
 #divMenu {position:absolute; top:18px; right:1.5%; text-align:right; }
