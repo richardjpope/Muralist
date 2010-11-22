@@ -182,4 +182,5 @@ div.infobox p {margin:0;}
 #pShareLinks .fb_iframe_widget {position:relative; top:-4px; left:3px;}
 
 /* Swatches */
-ul.swatch li {float:left; width:10px; height:100px;}
+table.swatch td {height:100px;}
+table.swatch td span {display:none;}

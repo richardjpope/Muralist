@@ -47,13 +47,15 @@
     {% if mural.muralcolour_set.all %}
         <div>
             <h4>Colours</h4>
-            <ul class="swatch">
+            <table class="swatch">
+                <tr>
                 {% for colour in mural.muralcolour_set.all %}
-                    <li style="background:#{{colour.hex_value}};">
-                
-                    </li>
+                    <td style="background:#{{colour.hex_value}};color:#{{colour.hex_value}};">
+                        <span>#{{colour.hex_value}}</span>
+                    </td>
                 {% endfor %}
-            </ul>
+                </tr>
+            </table>
             <br class="clear"/>
         </div>
     {% endif %}
