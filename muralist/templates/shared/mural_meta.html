@@ -88,6 +88,16 @@
                 {% endif %}
                 <img id="imgScale" src="{{MEDIA_URL}}/images/scale.png" alt="Person for scale" title="Person for scale"/>                
             </div>
+            {% if pictogram_curtail_height and pictogram_curtail_width %}
+                <small>Full width and height not shown</small>                        
+            {% else %}
+                {% if pictogram_curtail_height %}
+                    <small>Full height not shown</small>            
+                {% endif %}
+                {% if pictogram_curtail_width %}                
+                    <small>Full width not shown</small>            
+                {% endif %}
+            {% endif %}    
         </div>
     {% endif %}
     
@@ -95,13 +105,14 @@
     {% if mural.muralcolour_set.all %}
         <div>
             <h4>Colours</h4>
-            <ul class="swash">
+            <ul class="swatch">
                 {% for colour in mural.muralcolour_set.all %}
                     <li style="background:#{{colour.hex_value}};">
                 
                     </li>
                 {% endfor %}
             </ul>
+            <br class="clear"/>
         </div>
     {% endif %}
     

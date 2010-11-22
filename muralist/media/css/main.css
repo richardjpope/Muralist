@@ -162,7 +162,7 @@ dl.timeline dd {float:left;padding-left:0.3em;margin-left:4px;}
 
 /* pictograms */
 
-div.pictogram {border:solid 1px #808080!important; position:relative;background:#fff;padding:0!important;}
+div.pictogram {border:solid 1px #808080!important; position:relative;background:#fff;padding:0!important; margin-bottom:2px;}
 div.pictogram span {position:absolute; bottom:8px; left:10px; color:#333; font-size:0.8em;}
 #imgScale {position:absolute; bottom:0px; right:-15px;}
 
@@ -178,3 +178,6 @@ div.infobox p {margin:0;}
 #pShareLinks {position:absolute;top:6px; right:5px;padding:0;margin:0;text-align:right;}
 #pShareLinks iframe {border:none!important;width:55px!important;}
 #pShareLinks .fb_iframe_widget {position:relative; top:-4px; left:3px;}
+
+/* Swatches */
+ul.swatch li {float:left; width:10px; height:100px;}
