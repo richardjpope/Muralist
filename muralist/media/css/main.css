@@ -156,8 +156,8 @@ div.condition span img {vertical-align:middle; margin-right:10px;}
 .user_action {border-top:solid 5px #ffffa0;border-bottom:solid 5px #ffffa0;padding:1em 0;}
 
 /* Timelines */
-dl.timeline {font-size:1em;}
-dl.timeline dt {float:left;border-right:solid 2px #333;clear:left; width:2em;min-height:4px;padding-right:4px;}
+dl.timeline {font-size:1em;padding-top:0; margin-top:0; font-size:0.9em;}
+dl.timeline dt {float:left;border-right:solid 1px #333;clear:left; width:2em;min-height:4px;padding-right:12px;}
 dl.timeline dd {float:left;padding-left:0.3em;margin-left:4px;}
 
 /* pictograms */

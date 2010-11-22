@@ -6,12 +6,11 @@
     <div>
         <h4>Where to find it</h4>
         <p>
-            {{mural.location_description}}
-        </p>
-        <p>
             <em>{{mural.address}}</em>
         </p>
         <p>
+            {{mural.location_description}}
+            <br/>
             <a href="http://maps.google.com/maps?z=15&q=loc:{{mural.lat}},{{mural.lng}}">Show me on a map</a>
         </p>
     </div>
