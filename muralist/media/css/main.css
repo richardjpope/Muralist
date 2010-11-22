@@ -178,7 +178,7 @@ div.infobox p {margin:0;}
 
 /* Share links */
 #pShareLinks {position:absolute;top:6px; right:20px;padding:0;margin:0;text-align:right;}
-#pShareLinks iframe {border:none!important;width:55px!important;}
+#pShareLinks iframe {border:none!important;}
 #pShareLinks .fb_iframe_widget {position:relative; top:-4px; left:3px;}
 
 /* Swatches */
