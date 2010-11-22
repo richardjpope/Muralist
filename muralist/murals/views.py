@@ -42,10 +42,23 @@ def mural(request, uri_slug, page='history'):
     #size representation
     pictogram_width = None
     pictogram_height = None
+    pictogram_max_width = 230
+    pictogram_max_height = 290
+    pictogram_curtail_width = False
+    pictogram_curtail_height = False    
     pictogram_1meter_in_pixels = 16
     if mural.aspect_ratio():
         pictogram_width = int(mural.width * pictogram_1meter_in_pixels)
         pictogram_height = int(mural.height * pictogram_1meter_in_pixels)
+       
+       #check for max display size
+        if pictogram_width > pictogram_max_width:
+           pictogram_width =  pictogram_max_width
+           pictogram_curtail_width = True
+
+        if pictogram_height > pictogram_max_height:
+          pictogram_height =  pictogram_max_height
+          pictogram_curtail_height = True           
 
     #get photos
     thumbnails = []
@@ -64,7 +77,7 @@ def mural(request, uri_slug, page='history'):
     if page == 'memories':
         template = 'mural_memories.html'        
 
-    return render_to_response(template, {'mural': mural, 'thumbnails': thumbnails, 'show_timeline': show_timeline, 'pictogram_width': pictogram_width, "pictogram_height": pictogram_height, 'page': page}, context_instance = RequestContext(request))        
+    return render_to_response(template, {'mural': mural, 'thumbnails': thumbnails, 'show_timeline': show_timeline, 'pictogram_width': pictogram_width, "pictogram_height": pictogram_height, 'pictogram_curtail_width':pictogram_curtail_width, 'pictogram_curtail_height':pictogram_curtail_height,  'page': page}, context_instance = RequestContext(request))        
 
 
 def artists (request):
