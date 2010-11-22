@@ -3,35 +3,41 @@
         <span class="{{mural.condition_tag}}"><img src="{{MEDIA_URL}}/images/brush_{{mural.condition_tag}}.png" />This mural {{mural.condition_text}}</span>
     </div>
 
-    <h4>Where to find it</h4>
-    <p>
-        {{mural.location_description}}
-    </p>
-    <p>
-        <em>{{mural.address}}</em>
-    </p>
-    <p>
-        <a href="http://maps.google.com/maps?z=15&q=loc:{{mural.lat}},{{mural.lng}}">Show me on a map</a>
-    </p>
+    <div>
+        <h4>Where to find it</h4>
+        <p>
+            {{mural.location_description}}
+        </p>
+        <p>
+            <em>{{mural.address}}</em>
+        </p>
+        <p>
+            <a href="http://maps.google.com/maps?z=15&q=loc:{{mural.lat}},{{mural.lng}}">Show me on a map</a>
+        </p>
+    </div>
     {% if mural.bus_routes or mural.nearest_underground or mural.nearest_underground %}
-        <h4>How to get there</h4>
-        <dl class="transport_routes">
-            {% if mural.bus_routes %}
-                <dt class="bus"><span>Bus</span></dt>
-                <dd>{{mural.bus_routes}}</dd>
-            {% endif %}
-            {% if mural.nearest_railway_station %}
-                <dt class="train"><span>Train</span></dt>
-                <dd>{{mural.nearest_railway_station}}</dd>
-            {% endif %}                
-            {% if mural.nearest_underground %}
-                <dt class="tube"><span>Tube</span></dt>
-                <dd>{{mural.nearest_underground}}</dd>
-            {% endif %}                
-        </dl>
+        <div>
+            <h4>How to get there</h4>
+            <dl class="transport_routes">
+                {% if mural.bus_routes %}
+                    <dt class="bus"><span>Bus</span></dt>
+                    <dd>{{mural.bus_routes}}</dd>
+                {% endif %}
+                {% if mural.nearest_railway_station %}
+                    <dt class="train"><span>Train</span></dt>
+                    <dd>{{mural.nearest_railway_station}}</dd>
+                {% endif %}                
+                {% if mural.nearest_underground %}
+                    <dt class="tube"><span>Tube</span></dt>
+                    <dd>{{mural.nearest_underground}}</dd>
+                {% endif %}                
+            </dl>
+        </div>
     {% endif %}
-        {# Timeline #}
-        {% if show_timeline %}            
+
+    {# Timeline #}
+    {% if show_timeline %}            
+        <div>
             <h4>Timeline</h4>
             <dl class="timeline">
                    {% for year in mural.event_years %}                
@@ -52,9 +58,11 @@
                    {% endfor %}                   
             </dl>
             <br class="clear"/>
-        {% endif %}
-    <div class="meta">
-        {% if mural.muralaletrnativename_set.all %}
+        </div>
+    {% endif %}
+    
+    {% if mural.muralaletrnativename_set.all %}
+        <div>
             <h4>Alternative names</h4>
             <ul>
                 {% for alternative_name in mural.muralaletrnativename_set.all %}
@@ -63,26 +71,37 @@
                     </li>
                 {% endfor %}
             </ul>
-        {% endif %}
-        {% if pictogram_width and pictogram_height %}
+        </div>
+    {% endif %}
+    
+    {% if pictogram_width and pictogram_height %}
+        <div>
             <h4>Size</h4>
             <div class="pictogram" style="width:{{pictogram_width|floatformat:0}}px; height:{{pictogram_height|floatformat:0}}px;">
                 <span>
                     {{mural.width|floatformat}} m x {{mural.height|floatformat}} m
                 </span>
             </div>
-        {% endif %}
-        {% if mural.muralcolour_set.all %}
+        </div>
+    {% endif %}
+    
+    {# Colours #}
+    {% if mural.muralcolour_set.all %}
+        <div>
             <h4>Colours</h4>
             <ul class="swash">
                 {% for colour in mural.muralcolour_set.all %}
                     <li style="background:#{{colour.hex_value}};">
-                    
+                
                     </li>
                 {% endfor %}
             </ul>
-        {% endif %}
-        {% if mural.muralfunder_set.all %}
+        </div>
+    {% endif %}
+    
+    {# Funding #}
+    {% if mural.muralfunder_set.all %}
+        <div>
             <h4>Funding</h4>
             <ul>
                 {% for funder in mural.muralfunder_set.all %}
@@ -95,8 +114,11 @@
                     </li>
                 {% endfor %}
             </ul>
-        {% endif %}
-        {% if mural.muralmaterial_set.all %}
+        </div>
+    {% endif %}
+    
+    {% if mural.muralmaterial_set.all %}
+        <div>
             <h4>Materials</h4>
             <ul>
                 <li>
@@ -106,7 +128,7 @@
                     {% endfor %}
                 </li>
             </ul>
-        {% endif %}
-    </div>
+        </div>
+    {% endif %}
 
 </div>

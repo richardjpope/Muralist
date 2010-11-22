@@ -6,9 +6,13 @@
             <img src="{{thumbnail}}" />
         {% endfor %}
     </div>    
-    <p>
-        Tag photos of this mural with <code>lmps:mural={{mural.id}}</code> on Flickr
-    </p>
+
+    <div class="infobox">
+        <h4>Share your photos of '{{mural.title}}'</h4>
+        <p>
+            If you visit this mural please upload any photos you take to the photo sharing website <a href="http://flickr.com">Flickr</a> and tag them with <code>lmps:mural={{mural.id}}</code> to let us know.
+        </p>
+    </div>
 {% endblock %}
 {% block run_script%}
 

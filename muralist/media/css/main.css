@@ -1,7 +1,7 @@
 /* Resets */
 h1, h2, h3, h4, h5, h6 {padding:0; margin:0;}
 img {border:none;}
-code {background:#ccc; color:#333; padding:0 0.6em;}
+code {background:#000; color:#fff; padding:0.2em 0.8em;}
 
 body {text-align:center; padding:20px 0 20px 0; margin:0; font-family:Helvetica, arial, sans-serif; color:#351A13; background:#ece7e0;}
 #divPage {width:960px; text-align:left; margin:0 auto; position:relative; font-size:100%;}
@@ -18,8 +18,8 @@ body {text-align:center; padding:20px 0 20px 0; margin:0; font-family:Helvetica,
 #divMenu ul li a img {vertical-align:top;margin-right:2px;}
 
 /* Content and columns */
-#divContent {padding:20px 0 3em 0; font-size:1em;background:#fff;border: #ccc solid 1px;}
-.content.full {padding-left:20px;padding-right:20px;}
+#divContent {padding:20px 0 3em 0; font-size:1em;background:#fff;border: #ccc solid 1px;-moz-box-shadow: -1px 1px 1px #cfcfcf;-webkit-box-shadow: -1px 1px 2px #cfcfcf;box-shadow: -1px 1px 2px #cfcfcf;}
+.content.full {padding-left:20px;padding-right:20px; position:relative;}
 .content.fullplus {padding-left:0!important;padding-right:0!important;}
 .content.left, .content.right {float:left;}
 .content.half {width:448px;}
@@ -75,7 +75,7 @@ div.page_title {border-bottom:dotted 1px #ccc; border-top:solid 1px #ccc;
 .page_controls {position:absolute; top:0.6em; right:0; text-align:right;}
 
 /* Page tabs */
-div.page_tabs {clear:left;}
+div.page_tabs {clear:left; margin-bottom:1em;}
 div.page_tabs ul {border-bottom:solid 1px #ccc; height:1.65em; padding:0; margin:0;}
 div.page_tabs ul li {float:left; list-style-type:none; padding:0.3em 0.8em; margin:0 0.3em;
         border-top:solid 1px #ccc;border-left:solid 1px #ccc;border-right:solid 1px #ccc;}
@@ -127,14 +127,15 @@ div.highlight {background:#ffffd7; padding:1em; margin-bottom: 0.5em;}
 #divIntro {position:relative; top:-30px;}
 
 p.intro {font-size:1.5em; margin-top:0;padding-top:1em;}
-p.byline {font-size:1em;border-top:solid 1px #808080;border-bottom:solid 1px #808080;
-    padding:0.5em 20px;}
+.byline {font-size:1em;border-top:solid 1px #808080;border-bottom:solid 1px #808080;
+    padding:0.5em 100px 0.5em 20px; position:relative;}
 
 
 /* metadata */
-div.meta {background:#fafafa;border-top:solid 1px #ccc;border-left:solid 1px #ccc;border-bottom:solid 1px #ccc; width:246px!important; position:relative;right:-1px; -moz-box-shadow: -1px 1px 2px #ddd;-webkit-box-shadow: -1px 1px 2px #ddd; padding-top:1em; font-size:0.9em;}
-div.meta div {border:none;-moz-box-shadow: none;-webkit-box-shadow: none;}
-div.meta h4 {padding-bottom:0;margin-bottom:0;}
+div.meta {background:#fafafa;border-top:solid 1px #ccc;border-left:solid 1px #ccc;border-bottom:solid 1px #ccc; width:246px!important; position:relative;right:-1px; -moz-box-shadow: -1px 1px 2px #ddd;-webkit-box-shadow: -1px 1px 2px #ddd;box-shadow: -1px 1px 2px #ddd; padding-top:1em; font-size:0.9em; color:#2F2520;}
+div.meta h4 {padding-bottom:0.6em;margin-bottom:0;}
+div.meta div {border:none;-moz-box-shadow: none;-webkit-box-shadow: none;padding-bottom:1.2em;}
+div.meta div p, div.meta div ul {padding-top:0; margin-top:0;}
 
 /* transport */
 dl.transport_routes {padding:0; margin:0 0 1em 0;}
@@ -162,3 +163,12 @@ dl.timeline dd {float:left;padding-left:0.3em;margin-left:4px;}
 /* pictograms */
 div.pictogram {border:solid 1px #808080!important; position:relative;background:#fff;}
 div.pictogram span {position:absolute; bottom:5px; left:10px; color:#808080; font-size:0.8em;}
+
+/* infobox */
+div.infobox {background:#fafafa; border:solid 1px #ccc; padding: 1em 0.7em;}
+div.infobox p {margin:0;}
+
+/* Share links */
+#pShareLinks {position:absolute;top:6px; right:5px;padding:0;margin:0;text-align:right;}
+#pShareLinks iframe {border:none!important;width:55px!important;}
+#pShareLinks .fb_iframe_widget {position:relative; top:-4px; left:3px;}

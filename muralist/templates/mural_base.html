@@ -10,9 +10,26 @@
                 <img src="{{MEDIA_URL}}/images/headers/{{mural.uri_slug}}.jpg"/>
             {% endif %}
         </div>
-        <p class="byline">
-            {% include 'shared/mural_byline.html' %}            
-        </p>
+        <div class="byline">
+            {% include 'shared/mural_byline.html' %}
+            <div id="fb-root"></div>
+            <script>
+              window.fbAsyncInit = function() {
+                FB.init({appId: '157989130911448', status: true, cookie: true,
+                         xfbml: true});
+              };
+              (function() {
+                var e = document.createElement('script'); e.async = true;
+                e.src = document.location.protocol +
+                  '//connect.facebook.net/en_US/all.js';
+                document.getElementById('fb-root').appendChild(e);
+              }());
+            </script>
+            <p id="pShareLinks">
+                <fb:like href="{%url mural mural.uri_slug %}" layout="button_count" font="arial"></fb:like>
+                <a href="http://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+            </p>
+        </div>
     </div>
     <div class="content full">     
         <p class="intro">
