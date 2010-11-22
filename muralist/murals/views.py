@@ -41,10 +41,11 @@ def mural(request, uri_slug, page='history'):
 
     #size representation
     pictogram_width = None
-    pictogram_height = None    
+    pictogram_height = None
+    pictogram_1meter_in_pixels = 16
     if mural.aspect_ratio():
-        pictogram_width = 200
-        pictogram_height = pictogram_width * mural.aspect_ratio()
+        pictogram_width = int(mural.width * pictogram_1meter_in_pixels)
+        pictogram_height = int(mural.height * pictogram_1meter_in_pixels)
 
     #get photos
     thumbnails = []

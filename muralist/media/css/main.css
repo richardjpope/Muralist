@@ -161,8 +161,10 @@ dl.timeline dt {float:left;border-right:solid 1px #333;clear:left; width:2em;min
 dl.timeline dd {float:left;padding-left:0.3em;margin-left:4px;}
 
 /* pictograms */
+
 div.pictogram {border:solid 1px #808080!important; position:relative;background:#fff;}
-div.pictogram span {position:absolute; bottom:5px; left:10px; color:#808080; font-size:0.8em;}
+div.pictogram span {position:absolute; top:8px; left:10px; color:#808080; font-size:0.8em;}
+#imgScale {position:absolute; bottom:-1px; right:-15px;}
 
 /* infobox */
 div.infobox {background:#fafafa; border:solid 1px #ccc; padding: 1em 0.7em;}
