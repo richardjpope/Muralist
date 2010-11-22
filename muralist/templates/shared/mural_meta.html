@@ -84,27 +84,21 @@
         </div>
     {% endif %}
     
-    {# Transport #}
-    {% if mural.bus_routes or mural.nearest_underground or mural.nearest_underground %}
-        <div>
-            <h4>How to get there</h4>
-            <dl class="transport_routes">
-                {% if mural.bus_routes %}
-                    <dt class="bus"><span>Bus</span></dt>
-                    <dd>{{mural.bus_routes}}</dd>
-                {% endif %}
-                {% if mural.nearest_railway_station %}
-                    <dt class="train"><span>Train</span></dt>
-                    <dd>{{mural.nearest_railway_station}}</dd>
-                {% endif %}                
-                {% if mural.nearest_underground %}
-                    <dt class="tube"><span>Tube</span></dt>
-                    <dd>{{mural.nearest_underground}}</dd>
-                {% endif %}                
-            </dl>
-        </div>
-    {% endif %}
-    
+    {# Materials #}
+    {% if mural.muralmaterial_set.all %}
+         <div>
+             <h4>Materials</h4>
+             <ul>
+                 <li>
+                     {% for material in mural.muralmaterial_set.all %}
+                         <strong>{{material.material_type|title}}:</strong>
+                         {{material.material_value}}
+                     {% endfor %}
+                 </li>
+             </ul>
+         </div>
+     {% endif %}
+     
     {# Funding #}
     {% if mural.muralfunder_set.all %}
         <div>
@@ -123,19 +117,6 @@
         </div>
     {% endif %}
     
-    {% if mural.muralmaterial_set.all %}
-        <div>
-            <h4>Materials</h4>
-            <ul>
-                <li>
-                    {% for material in mural.muralmaterial_set.all %}
-                        <strong>{{material.material_type|title}}:</strong>
-                        {{material.material_value}}
-                    {% endfor %}
-                </li>
-            </ul>
-        </div>
-    {% endif %}
     
     {% if mural.muralaletrnativename_set.all %}
         <div>
@@ -147,6 +128,27 @@
                     </li>
                 {% endfor %}
             </ul>
+        </div>
+    {% endif %}
+    
+    {# Transport #}
+    {% if mural.bus_routes or mural.nearest_underground or mural.nearest_underground %}
+        <div>
+            <h4>How to get there</h4>
+            <dl class="transport_routes">
+                {% if mural.bus_routes %}
+                    <dt class="bus"><span>Bus</span></dt>
+                    <dd>{{mural.bus_routes}}</dd>
+                {% endif %}
+                {% if mural.nearest_railway_station %}
+                    <dt class="train"><span>Train</span></dt>
+                    <dd>{{mural.nearest_railway_station}}</dd>
+                {% endif %}                
+                {% if mural.nearest_underground %}
+                    <dt class="tube"><span>Tube</span></dt>
+                    <dd>{{mural.nearest_underground}}</dd>
+                {% endif %}                
+            </dl>
         </div>
     {% endif %}
 

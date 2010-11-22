@@ -9,6 +9,12 @@
         <div class="story">
             {{artist.long_biography|escape|linebreaks}}
         </div>
+        <h3>Murals by this artist</h3>
+        <ul>
+            {% for mural in artist.mural_set.all %}
+                <li><a href="{% url mural mural.uri_slug %}">{{mural.title}}</a></li>
+            {% endfor %}
+        </ul>
     </div>
     <div class="content right col">
         

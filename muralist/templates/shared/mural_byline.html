@@ -16,7 +16,8 @@ by
                 {% endif %}
             {% endifequal %}
         {% endifnotequal %}
-        <a href="{% url artist artist.uri_slug %}">{{artist.name}}</a>{% if forloop.last %}.{% endif %}
+        {% if artist.published %}
+        <a href="{% url artist artist.uri_slug %}">{{artist.name}}</a>{% else %}{{artist.name}}{%endif%}{% if forloop.last %}.{% endif %}
     {% endfor %}                    
 {% else %}
     unknown artists.

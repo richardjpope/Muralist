@@ -28,7 +28,7 @@ body {text-align:center; padding:20px 0 20px 0; margin:0; font-family:Helvetica,
 .content.col.left {width:630px;padding-left:20px;padding-right:20px;}
 .content.col.right {width:248px; padding-right:20px;padding-left:20px;}
 .content .section {padding:1em 0; border-bottom:dotted 1px #ccc;}
-.content h1 {padding-bottom:0.6em;font-size:3em;padding-bottom:0.3em;}
+.content h1 {padding-bottom:0.6em;font-size:3em;padding-bottom:0.1em;}
 .content h2 {padding-bottom:0.6em;font-size:1.7em;}
 .content h3 {padding-bottom:0.6em;}
 .content h4 {padding-bottom:0.6em;text-transform:uppercase;}
@@ -123,13 +123,14 @@ div.highlight {background:#ffffd7; padding:1em; margin-bottom: 0.5em;}
 #divFrontMap {height:400px; position:relative; top:-20px;}
 .olPopup {border:solid 1px #ccc;}
 .olControlAttribution {position:absolute;right:0;bottom:5px!important;}
+.olControlAttribution.olControlNoSelect {left:5px;}
 
 #divIntro {position:relative; top:-30px;}
 
 p.intro {font-size:1.5em; margin-top:0;padding-top:1em;}
-.byline {font-size:1em;border-top:solid 1px #808080;border-bottom:solid 1px #808080;
-    padding:0.5em 100px 0.5em 20px; position:relative;}
-
+.byline {font-size:0.9em;
+    padding:0.5em 100px 1em 20px; position:relative;}
+.slice_image {overflow:hidden;}
 
 /* metadata */
 div.meta {background:#fafafa;border-top:solid 1px #ccc;border-left:solid 1px #ccc;border-bottom:solid 1px #ccc; width:246px!important; position:relative;right:-1px; -moz-box-shadow: -1px 1px 2px #ddd;-webkit-box-shadow: -1px 1px 2px #ddd;box-shadow: -1px 1px 2px #ddd; padding-top:1em; font-size:0.9em; color:#2F2520;}
