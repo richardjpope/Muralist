@@ -68,6 +68,7 @@ table.data tr:hover td {border-bottom:solid 1px #ccc;border-top:solid 1px #ccc;}
 ul.key {text-align:right; padding:5px 10px 5px 0;position:relative; top:-40px; color:#808080;background:#fafafa; border-bottom:solid 1px #ccc;border-top:solid 1px #ccc;}
 ul.key li {display:inline; font-size:0.8em; padding-right:10px;}
 ul.key li img {margin-right:5px;vertical-align:middle; }
+#liFullList {position:absolute;left:10px;top:12px; font-weight:bold;}
 
 /* Page titles */
 div.page_title {border-bottom:dotted 1px #ccc; border-top:solid 1px #ccc;
@@ -123,7 +124,7 @@ div.highlight {background:#ffffd7; padding:1em; margin-bottom: 0.5em;}
 #divFrontMap {height:400px; position:relative; top:-20px;}
 .olPopup {border:solid 1px #ccc;}
 .olControlAttribution {position:absolute;right:0;bottom:5px!important;}
-.olControlAttribution.olControlNoSelect {left:5px;}
+.olControlAttribution.olControlNoSelect {bottom:10px!important; font-size:0.7em!important;}
 
 #divIntro {position:relative; top:-30px;}
 
@@ -176,7 +177,7 @@ div.infobox {background:#fafafa; border:solid 1px #ccc; padding: 1em 0.7em;}
 div.infobox p {margin:0;}
 
 /* Share links */
-#pShareLinks {position:absolute;top:6px; right:5px;padding:0;margin:0;text-align:right;}
+#pShareLinks {position:absolute;top:6px; right:20px;padding:0;margin:0;text-align:right;}
 #pShareLinks iframe {border:none!important;width:55px!important;}
 #pShareLinks .fb_iframe_widget {position:relative; top:-4px; left:3px;}
 
