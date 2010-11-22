@@ -1,0 +1,15 @@
+{% extends "mural_base.html" %}
+{% block title %}{{mural.title}} mural, {{mural.locality}} - photographs{% endblock %}
+{% block mural_content %}
+    <div id="slider">
+        {% for thumbnail in thumbnails %}
+            <img src="{{thumbnail}}" />
+        {% endfor %}
+    </div>    
+    <p>
+        Tag photos of this mural with <code>lmps:mural={{mural.id}}</code> on Flickr
+    </p>
+{% endblock %}
+{% block run_script%}
+
+{% endblock %}

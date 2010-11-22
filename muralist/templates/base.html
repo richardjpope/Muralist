@@ -2,11 +2,10 @@
 <html lang="en">
 	<head>
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	    <link href='http://fonts.googleapis.com/css?family=Molengo' rel='stylesheet' type='text/css'>
 	    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/main.css" />
 	    <script type="text/javascript" src="http://www.openlayers.org/api/OpenLayers.js"></script>
         <script type="text/javascript" src="{{ MEDIA_URL }}javascript/cloudmade.js"></script>	    	    
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>	                                           
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>	                                           
         <script src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
 		<script type="text/javascript" src="{{ MEDIA_URL }}javascript/main.js"></script>	    
 	    {% block css %}{% endblock %}
@@ -20,24 +19,26 @@
 	        
                 {# Logo #}
                 <div id="divLogo">
-    				    <a href="{% url index %}" class="image"><span class="hide">London Mural Preservation Society</span></a>
-    				    <a href="{% url index %}">London Mural Preservation Society</a>
+				    <a href="{% url index %}"><span>London Mural Preservation Society</span></a>
     			</div>
 		
     		    {# Menu #}
     			<div id="divMenu">
     			    <ul class="main_menu">
     				    <li>
-    				        <a href="{% url murals %}" title="Murals">Murals</a>
+    				        <a href="{% url murals %}" title="Murals">Find a mural</a>
     				    </li>
     				    <li>
-    				        <a href="http://londonmuralpreservationsociety.wordpress.com/" title="About">Blog</a>
+    				        <a href="http://londonmuralpreservationsociety.wordpress.com/" title="About">Latest news</a>
     				    </li>
     				    <li>
     				        <a href="{% url index %}about/" title="About">About us</a>
     				    </li>
-    				    <li class="last">
-    				        <a href="http://www.facebook.com/group.php?gid=117071124970415" class="facebook_link" title="Get involved">Get involved!</a>
+    				    <li>
+    				        <a href="http://www.facebook.com/group.php?gid=117071124970415"title="Get involved">
+    				            <img src="{{MEDIA_URL}}/images/facebook.png" />
+    				            Get involved
+    				        </a>
     				    </li>
     				</ul>
 
@@ -65,6 +66,9 @@
     	    </div>			
     	    {% block footer %}
     			<div id="divFooter">
+    			    <div>
+    				        &copy; London Mural Preservation Society {% now "Y" %}
+    				</div>
     	             <ul>
     	                 <ul class="main_menu">
          				    <li>
@@ -81,9 +85,6 @@
          				    </li>
          				</ul>
     	             </ul>
-    				<div>
-    				        &copy; London Mural Preservation Society {% now "Y" %}
-    				</div>
     			</div>
     		{% endblock %}
     	</div>
@@ -91,6 +92,21 @@
 		{# Script #}
 	    <script type="text/javascript" defer="defer">
 	        {% block run_script %}{% endblock %}
+        </script>
+
+        {# Google analytics #}
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19839364-1']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
         </script>
 	</body>
 </html>

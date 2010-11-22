@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}{{mural.title}} mural, {{mural.locality}}{% endblock %}
+{% block content %}
+    <div class="content full">
+        <h1>{{mural.title}}</h1>
+    </div>
+    <div class="content fullplus">
+        <div class="slice_image">
+            {% if mural.has_header_image %}
+                <img src="{{MEDIA_URL}}/images/headers/{{mural.uri_slug}}.jpg"/>
+            {% endif %}
+        </div>
+        <p class="byline">
+            {% include 'shared/mural_byline.html' %}            
+        </p>
+    </div>
+    <div class="content full">     
+        <p class="intro">
+            {{mural.short_description}}
+        </p>
+    </div>
+    <div class="content left col">
+        <div class="page_tabs">
+            <ul>
+                {% ifequal page 'history' %}
+                    <li class="selected">History</li>
+                {% else %}
+                    <li><a href="{% url mural mural.uri_slug%}">History</a></li>
+                {% endifequal %}
+                {% ifequal page 'photos' %}
+                    <li class="selected">Photos</li>
+                {% else %}
+                    <li><a href="{% url mural_photos mural.uri_slug%}">Photos</a></li>
+                {% endifequal %}             
+                {% ifequal page 'memories' %}
+                    <li class="selected">Memories</li>
+                {% else %}
+                    <li><a href="{% url mural_memories mural.uri_slug%}">Memories</a></li>
+                {% endifequal %}                
+            </ul>
+        </div>     
+        {% block mural_content%}
+        {% endblock %}        
+    </div>
+    {% include 'shared/mural_meta.html' %}     
+{% endblock %}

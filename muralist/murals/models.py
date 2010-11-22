@@ -90,8 +90,8 @@ class Mural(models.Model):
     location_description = models.TextField(max_length = 255, null=False, blank=False, verbose_name='How to find it', help_text="explain where to stand and look to find the mural")
     lat = models.FloatField(null=False, blank=False, verbose_name='Latitude of mural', help_text="as a decimal number")
     lng = models.FloatField(null=False, blank=False, verbose_name='Longitude of mural', help_text="as a decimal number")
-    width = models.IntegerField(null=True, blank=True, verbose_name='Width of the mural', help_text="in meters")
-    height = models.IntegerField(null=True, blank=True, verbose_name='Height of the mural in meters', help_text="in meters")
+    width = models.FloatField(null=True, blank=True, verbose_name='Width of the mural', help_text="in meters")
+    height = models.FloatField(null=True, blank=True, verbose_name='Height of the mural in meters', help_text="in meters")
     date_added = models.DateTimeField(auto_now_add = True, verbose_name='Date mural was added to this database')
     date_completed = models.DateField(null=True, blank=True, verbose_name='Date the mural was completed', help_text="this also needs adding to the 'events' section")
     wikipedia_uri = models.URLField(verify_exists=True, max_length=200, null=True, blank=True, verbose_name='URL for Wikipedia page for the mural')
@@ -134,6 +134,13 @@ class Mural(models.Model):
 
         return result
 
+    def aspect_ratio(self):
+        result = False
+        if self.width and self.height and self.width > 0 and self.height > 0:
+            result = self.width / self.height
+        return result
+        
+        
     def event_years(self):
         years = []
         events = self.muralevent_set.all()        

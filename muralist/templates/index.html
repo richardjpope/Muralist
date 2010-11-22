@@ -4,6 +4,12 @@
 {% block content %}
     <input type="hidden" id="hidMapData" value="{{murals_json}}" />
     <div id="divFrontMap"></div>
+    <ul class="key">
+        <li><img src="{{MEDIA_URL}}/images/brush_good_small.png" alt="Good"/>Good condition</li>
+        <li><img src="{{MEDIA_URL}}/images/brush_ok_small.png" alt="OK"/>OK condition</li>
+        <li><img src="{{MEDIA_URL}}/images/brush_threat_small.png" alt="Under threat"/>Under threat</li>
+        <li><img src="{{MEDIA_URL}}/images/brush_lost_small.png" alt="Lost"/>Lost</li>                        
+    </ul>
     <div id="divIntro">
         <div class="content left half">
             {% chunk "home_1" %}

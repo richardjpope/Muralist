@@ -1,4 +1,4 @@
-{{mural.locality|title}}, 
+{{mural.locality|title}} 
 {% if mural.date_completed %}
 {% else %}
     unknown date
@@ -15,7 +15,7 @@ by
                 ,
                 {% endif %}
             {% endifequal %}
-        {% endifnotequal %}                    
+        {% endifnotequal %}
         <a href="{% url artist artist.uri_slug %}">{{artist.name}}</a>{% if forloop.last %}.{% endif %}
     {% endfor %}                    
 {% else %}

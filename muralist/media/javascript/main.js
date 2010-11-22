@@ -66,6 +66,18 @@ function setupFrontMap(){
                     oMap.addPopup(oPopup, true);
                 }  
         );
+        oMarker.events.register("mouseover", oMarker,
+                function(o, b){
+                    document.getElementById('divFrontMap').style.cursor='pointer';
+                }  
+        );
+        oMarker.events.register("mouseout", oMarker,
+                function(o, b){
+                    document.getElementById('divFrontMap').style.cursor='auto';
+                }  
+        );
+
+        
         oMarkersLayer.addMarker(oMarker);
 
     }
