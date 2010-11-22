@@ -4,6 +4,7 @@ from django.contrib import admin
 # Murals
 class MuralColourInline(admin.TabularInline):
     model = MuralColour
+    extra = 10
 
 class MuralEventInline(admin.TabularInline):
     model = MuralEvent
