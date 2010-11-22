@@ -15,6 +15,23 @@
         </p>
     </div>
     
+    {# Colours #}
+    {% if mural.muralcolour_set.all %}
+        <div>
+            <h4>Colours</h4>
+            <table class="swatch">
+                <tr>
+                {% for colour in mural.muralcolour_set.all %}
+                    <td style="background:#{{colour.hex_value}};color:#{{colour.hex_value}};">
+                        <span>#{{colour.hex_value}}</span>
+                    </td>
+                {% endfor %}
+                </tr>
+            </table>
+            <br class="clear"/>
+        </div>
+    {% endif %}
+    
     {% if pictogram_width and pictogram_height %}
         <div class="pictogram_wrapper">
             <h4>Dimensions</h4>
@@ -40,23 +57,6 @@
                     <small>Full width not shown</small>            
                 {% endif %}
             {% endif %}    
-        </div>
-    {% endif %}
-    
-    {# Colours #}
-    {% if mural.muralcolour_set.all %}
-        <div>
-            <h4>Colours</h4>
-            <table class="swatch">
-                <tr>
-                {% for colour in mural.muralcolour_set.all %}
-                    <td style="background:#{{colour.hex_value}};color:#{{colour.hex_value}};">
-                        <span>#{{colour.hex_value}}</span>
-                    </td>
-                {% endfor %}
-                </tr>
-            </table>
-            <br class="clear"/>
         </div>
     {% endif %}
     
