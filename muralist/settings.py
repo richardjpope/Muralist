@@ -54,6 +54,7 @@ INSTALLED_APPS = (
     'south',
     'chunks',    
     'murals',    
+    'volunteer_tasks',        
 )
 
 try:

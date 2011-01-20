@@ -17,12 +17,14 @@
         </div>
         <div class="content right half">        
             <h3>What we've been up to</h3>
-            {% for blog_item in blog_items %}
-                <li>
-                    <h3><a href="{{blog_item.link}}">{{blog_item.title}}</a></h3>
-                    <p>{% autoescape off %} {{blog_item.summary}}{% endautoescape %} </p>
-                </li>
-        	{% endfor %}
+            <ul class="blog_entries">
+                {% for blog_item in blog_items %}
+                    <li>
+                        <h4><a href="{{blog_item.link}}">{{blog_item.title}}</a></h4>
+                        <p>{% autoescape off %} {{blog_item.summary}}{% endautoescape %} </p>
+                    </li>
+            	{% endfor %}
+    	    </ul>
         </div>
     </div>        
 {% endblock %}

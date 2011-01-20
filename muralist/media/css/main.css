@@ -1,5 +1,6 @@
 /* Resets */
 h1, h2, h3, h4, h5, h6 {padding:0; margin:0;}
+h2, h3, h4, h5, h6 {text-transform:uppercase; font-family:georgia, times, serif;}
 img {border:none;}
 code {background:#000; color:#fff; padding:0.2em 0.8em;}
 
@@ -17,8 +18,10 @@ body {text-align:center; padding:20px 0 20px 0; margin:0; font-family:Helvetica,
 #divMenu ul li a {padding-top:3px; color:#fff;}
 #divMenu ul li a img {vertical-align:top;margin-right:2px;}
 
+#divHeader, #divFooter {font-family:georgia, times, serif;}
+
 /* Content and columns */
-#divContent {padding:20px 0 3em 0; font-size:1em;background:#fff;border: #ccc solid 1px;-moz-box-shadow: -1px 1px 1px #cfcfcf;-webkit-box-shadow: -1px 1px 2px #cfcfcf;box-shadow: -1px 1px 2px #cfcfcf;}
+#divContent {padding:20px 0 20px 0; font-size:1em;background:#fff;border: #ccc solid 1px;-moz-box-shadow: -1px 1px 1px #cfcfcf;-webkit-box-shadow: -1px 1px 2px #cfcfcf;box-shadow: -1px 1px 2px #cfcfcf;}
 .content.full {padding-left:20px;padding-right:20px; position:relative;}
 .content.fullplus {padding-left:0!important;padding-right:0!important;}
 .content.left, .content.right {float:left;}
@@ -30,8 +33,8 @@ body {text-align:center; padding:20px 0 20px 0; margin:0; font-family:Helvetica,
 .content .section {padding:1em 0; border-bottom:dotted 1px #ccc;}
 .content h1 {padding-bottom:0.6em;font-size:3em;padding-bottom:0.1em;}
 .content h2 {padding-bottom:0.6em;font-size:1.7em;}
-.content h3 {padding-bottom:0.6em;}
-.content h4 {padding-bottom:0.6em;text-transform:uppercase;}
+.content h3 {padding-bottom:0.2em;}
+.content h4 {padding-bottom:0.6em;}
 
 /* Attention */
 div.attention {text-align:center;}
@@ -187,3 +190,7 @@ table.swatch td span {display:none;}
 
 /* Donate button */
 div.donate {border:solid 1px #808080; text-align:center; padding:20px 0; background:#fafafa;}
+
+/* Blog entries */
+.blog_entries h4 {font-family:helvetica, arial, sans-serif; padding:0;text-transform:none;}
+.blog_entries ul {padding:0;}
