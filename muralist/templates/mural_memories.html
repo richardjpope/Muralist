@@ -7,7 +7,7 @@
                 <h4>{{memory.title}} - {{memory.person_name}}</h4>
                 <p><em>{{memory.short_description}}</em></p>
                 <div>
-                    {{memory.memory_text}}
+                    {{memory.memory_text|safe|escape|linebreaks}}
                 </div>
             </li>
         {% endfor %}        
