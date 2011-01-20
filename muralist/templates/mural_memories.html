@@ -1,7 +1,17 @@
 {% extends "mural_base.html" %}
 {% block title %}{{mural.title}} mural, {{mural.locality}} - photographs{% endblock %}
 {% block mural_content %}
-
+    <ul>
+        {% for memory in memories %}
+            <li>
+                <h4>{{memory.title}} - {{memory.person_name}}</h4>
+                <p><em>{{memory.short_description}}</em></p>
+                <div>
+                    {{memory.memory_text}}
+                </div>
+            </li>
+        {% endfor %}        
+    </ul>
     <div class="infobox">
         <h4>Share your memories of '{{mural.title}}'</h4>
         <p>

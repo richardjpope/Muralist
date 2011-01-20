@@ -70,6 +70,11 @@ def mural(request, uri_slug, page='history'):
         	photoSizes = flickr.photos_getSizes(photo_id=photo.attrib['id'])
         	thumbnails.append(photoSizes[0][4].attrib['source'])
 
+    memories = []
+    if page == 'memories':
+        memories = models.Memory.objects.filter(mural=mural, published=True, media_type='text')
+        
+        
     #work out template
     template = 'mural.html'
     if page == 'photos':
@@ -77,7 +82,7 @@ def mural(request, uri_slug, page='history'):
     if page == 'memories':
         template = 'mural_memories.html'        
 
-    return render_to_response(template, {'mural': mural, 'thumbnails': thumbnails, 'show_timeline': show_timeline, 'pictogram_width': pictogram_width, "pictogram_height": pictogram_height, 'pictogram_curtail_width':pictogram_curtail_width, 'pictogram_curtail_height':pictogram_curtail_height,  'page': page}, context_instance = RequestContext(request))        
+    return render_to_response(template, {'mural': mural, 'thumbnails': thumbnails, 'show_timeline': show_timeline, 'pictogram_width': pictogram_width, "pictogram_height": pictogram_height, 'memories': memories, 'pictogram_curtail_width':pictogram_curtail_width, 'pictogram_curtail_height':pictogram_curtail_height,  'page': page}, context_instance = RequestContext(request))        
 
 
 def artists (request):
