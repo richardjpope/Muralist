@@ -184,3 +184,6 @@ div.infobox p {margin:0;}
 /* Swatches */
 table.swatch td {height:100px;}
 table.swatch td span {display:none;}
+
+/* Donate button */
+div.donate {border:solid 1px #808080; text-align:center; padding:20px 0; background:#fafafa;}

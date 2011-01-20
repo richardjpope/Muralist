@@ -89,3 +89,7 @@ def artist(request, uri_slug):
 
     artist = get_object_or_404(models.Artist.published_objects, uri_slug=uri_slug)
     return render_to_response('artist.html', {'artist': artist,}, context_instance = RequestContext(request))
+    
+def donate (request):
+
+    return render_to_response('donate.html', {}, context_instance = RequestContext(request))    
