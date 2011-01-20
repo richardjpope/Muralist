@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
 from murals import views as muralist_views
+from volunteer_tasks import views as tasks_views
 import settings
 
 admin.autodiscover()
@@ -14,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^artists/$', muralist_views.artists, name="artists"),
     url(r'^artists/(?P<uri_slug>[\w_\-]+)/$', muralist_views.artist, name="artist"),    
     url(r'^donate/$', muralist_views.donate, name="donate"),
+    url(r'^volunteer/$', tasks_views.volunteer, name="tasks"),
     (r'^admin/', include(admin.site.urls)),    
     (r'^admin/(.*)', admin.site.root),
     

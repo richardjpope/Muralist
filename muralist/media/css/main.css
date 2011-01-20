@@ -1,10 +1,10 @@
 /* Resets */
-h1, h2, h3, h4, h5, h6 {padding:0; margin:0;}
-h2, h3, h4, h5, h6 {text-transform:uppercase; font-family:georgia, times, serif;}
+h1, h2, h3, h4, h5, h6 {padding:0; margin:0;font-family:georgia, times, serif; font-weight:normal;}
+h2, h3, h4, h5, h6 {text-transform:uppercase; font-weight:bold;}
 img {border:none;}
 code {background:#000; color:#fff; padding:0.2em 0.8em;}
 
-body {text-align:center; padding:20px 0 20px 0; margin:0; font-family:Helvetica, arial, sans-serif; color:#351A13; background:#ece7e0;}
+body {text-align:center; padding:20px 0 20px 0; margin:0; font-family:helvetica, arial, sans-serif; color:#351A13; background:#ece7e0;}
 #divPage {width:960px; text-align:left; margin:0 auto; position:relative; font-size:100%;}
 
 /* Header & menu */
@@ -163,7 +163,7 @@ div.condition span img {vertical-align:middle; margin-right:10px;}
 /* Timelines */
 dl.timeline {font-size:1em;padding-top:0; margin-top:0; font-size:0.9em;}
 dl.timeline dt {float:left;border-right:solid 1px #333;clear:left; width:2em;min-height:4px;padding-right:12px;}
-dl.timeline dd {float:left;padding-left:0.3em;margin-left:4px;}
+dl.timeline dd {float:left;padding-left:0.3em;margin-left:4px; width:80px;}
 
 /* pictograms */
 
