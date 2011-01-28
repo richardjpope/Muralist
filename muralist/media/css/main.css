@@ -12,11 +12,14 @@ body {text-align:center; padding:20px 0 20px 0; margin:0; font-family:helvetica,
     position:relative;text-align:left;}
 #divLogo a {height:150px; display:block;width:200px;padding:10px 3px 3px 20px;}
 #divLogo a span {display:none;;}
-#divMenu {position:absolute; top:18px; right:40px; text-align:right; }
-#divMenu ul li {}
-#divMenu ul li.last {}
+#divMenu {background:#789bc1; padding:10px 15px; font-family:georgia, times, serif; 
+    position:relative; margin-bottom:20px;}
+#divMenu ul {padding:0;margin:0;}
+#divMenu ul li {display:inline;padding:0 1em 0 0;margin:0;}
 #divMenu ul li a {padding-top:3px; color:#fff;}
 #divMenu ul li a img {vertical-align:top;margin-right:2px;}
+
+#divMenu .social_menu {position:absolute; top:10px; right:0;}
 
 #divHeader, #divFooter {font-family:georgia, times, serif;}
 

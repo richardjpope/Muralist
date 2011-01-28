@@ -22,27 +22,6 @@
 				    <a href="{% url index %}"><span>London Mural Preservation Society</span></a>
     			</div>
 		
-    		    {# Menu #}
-    			<div id="divMenu">
-    			    <ul class="main_menu">
-    				    <li>
-    				        <a href="{% url murals %}" title="Murals">Find a mural</a>
-    				    </li>
-    				    <li>
-    				        <a href="http://londonmuralpreservationsociety.wordpress.com/" title="About">Latest news</a>
-    				    </li>
-    				    <li>
-    				        <a href="{% url index %}about/" title="About">About us</a>
-    				    </li>
-    				    <li>
-    				        <a href="http://www.facebook.com/group.php?gid=117071124970415"title="Get involved">
-    				            <img src="{{MEDIA_URL}}/images/facebook.png" />
-    				            Get involved
-    				        </a>
-    				    </li>
-    				</ul>
-
-    			</div>
     			{# Errors #}
     	        <div id="divErrors">
     	            {% if error_messages %}
@@ -57,6 +36,39 @@
     		         {% endblock %}		    
     		     </div>
     	    </div>
+
+		    {# Menu #}
+			<div id="divMenu">
+			    <ul class="main_menu">
+				    <li>
+				        <a href="/" title="Murals">Home</a>
+				    </li>
+				    <li>
+				        <a href="{% url murals %}" title="Murals">Find a mural</a>
+				    </li>
+				    <li>
+				        <a href="http://londonmuralpreservationsociety.wordpress.com/" title="About">Latest news</a>
+				    </li>
+				    <li>
+				        <a href="{% url index %}about/" title="About">Volunteer</a>
+				    </li>
+				    <li>
+				        <a href="{% url index %}donate/" title="About">Donate</a>
+				    </li>
+				    <li>
+				        <a href="{% url index %}about/" title="About">About us</a>
+				    </li>
+				</ul>
+				<ul class="social_menu">
+				    <li>
+				        <a href="http://www.facebook.com/group.php?gid=117071124970415"title="Get involved">
+				            <img src="{{MEDIA_URL}}/images/facebook.png" />
+				        </a>
+				    </li>
+				</ul>
+
+			</div>
+
 	    
     	    {# Content #}
     	    <div id="divContent">

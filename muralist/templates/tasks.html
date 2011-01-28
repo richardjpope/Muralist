@@ -11,7 +11,7 @@
             {% for task in new_tasks %}
                 <li>
                     <h4>{{task.title}} ({{task.size}})</h4>
-                    <p>{{task.description}}</p>
+                    <p>{{task.detail}}</p>
                 </li>
             {% endfor %}
         </ul>
@@ -22,7 +22,7 @@
                 {% for task in completed_tasks %}
                     <li>
                         <h4>{{task.title}} ({{task.size}})</h4>
-                        <p>{{task.description}}</p>
+                        <p>{{task.detail}}</p>
                     </li>
                 {% endfor %}
             </ul>
