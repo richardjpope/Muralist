@@ -43,8 +43,7 @@ class ArtistAdmin(admin.ModelAdmin):
     prepopulated_fields = {"uri_slug": ("name",)}
     inlines = [
         ArtistEducationInline,
-        ArtistNonMuralWorkInline,
-        
+        ArtistNonMuralWorkInline, 
       ]
 
 # Memories
