@@ -227,8 +227,8 @@ class MuralMaterial(models.Model):
         
 # Memories
 class Memory(models.Model):
-        class Meta:
-               verbose_name_plural = "Memories"
+    class Meta:
+        verbose_name_plural = "Memories"
 
     MEDIA_CHOICES = (
         ('text', 'Text'),
