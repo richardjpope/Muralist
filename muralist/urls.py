@@ -17,7 +17,7 @@ urlpatterns = patterns('',
     url(r'^donate/$', muralist_views.donate, name="donate"),
     url(r'^volunteer/$', tasks_views.volunteer, name="tasks"),
     (r'^admin/', include(admin.site.urls)),    
-    (r'^admin/(.*)', admin.site.root),
+    url(r'^admin/', include(admin.site.urls)),
     
     # static media server for the dev sites / local dev
     url(r'^site-media/(?P<path>.*)$',       'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes':True}),    
