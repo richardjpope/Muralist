@@ -65,7 +65,7 @@
         <div>
             <h4>Timeline</h4>
             <dl class="timeline">
-                   {% for year in mural.event_years %}                
+                   {% for year in mural.event_years %}
                     <dt>
                         {% for event in mural.muralevent_set.all %}                                        
                             {% ifequal year event.date.year %}

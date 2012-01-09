@@ -3,13 +3,16 @@
 {% block content %}
     <div class="content full">
         <h1>London murals</h1>
-        <ul>
-            {% for mural in murals %}
-                <li>
-                    <a href="{% url mural mural.uri_slug %}">{{mural.title}}{% if mural.locality %} ({{mural.locality}}){% endif %}</a>
-                </li>
-        	{% endfor %}
-        </ul>
+            <ul>
+                {% for mural in murals %}
+                    <li>
+                        {% ifchanged mural.locality %}
+                            <h2>{{ mural.locality }}</h2>
+                        {% endifchanged %}
+                        <a href="{% url mural mural.uri_slug %}">{{mural.title}}{% if mural.locality %} ({{mural.locality}}){% endif %}</a>
+                    </li>
+            	{% endfor %}
+    	    </ul>
         <div class="infobox">
             <h4>Do you know of a mural that we don't?</h4>
             <p>

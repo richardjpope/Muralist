@@ -22,7 +22,7 @@ def index (request):
 
 def murals (request):
 
-    murals = models.Mural.published_objects.all()
+    murals = models.Mural.published_objects.all().order_by('locality', 'title')
     return render_to_response('murals.html', {'murals': murals,}, context_instance = RequestContext(request))
 
 def mural_memories(request, uri_slug):
